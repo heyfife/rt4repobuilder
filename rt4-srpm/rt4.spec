@@ -6,10 +6,10 @@
 
 # Supported rpmbuild options:
 #
-# --with gd/--without gd 
+# --with gd/--without gd
 #	enable/disable gd support
 #	Default: --with (had been default in rt < 3.8.0)
-%bcond_without gd 
+%bcond_without gd
 
 # --with graphviz/--without graphviz
 #	enable/disable graphiz support
@@ -43,11 +43,11 @@
 %global RT4_CACHEDIR		%{_localstatedir}/cache/rt4
 %global RT4_LOCALSTATEDIR	%{_localstatedir}/lib/rt4
 
-# Make sure perl_testdir is defined 
+# Make sure perl_testdir is defined
 %{!?perl_testdir:%global perl_testdir %{_libexecdir}/perl5-tests}
 
 Name:		rt4
-Version:	4.0.24
+Version:	4.4.2
 Release:	0.5%{?dist}
 Summary:	Request tracker 4
 
@@ -61,7 +61,6 @@ Source4:	README.fedora
 Source5:	rt4.logrotate.in
 
 Patch0:		rt-4.0.12-config.diff
-Patch1:		rt-4.0.24-Handle.diff
 
 BuildArch:	noarch
 
@@ -324,11 +323,11 @@ Group:		Development/Debug
 Requires:	%{name} = %{version}-%{release}
 Requires:	/usr/bin/prove
 Requires(postun): %{__rm}
-Requires:	perl(DBD::SQLite)  
-Requires:	perl(GnuPG::Interface)  
-Requires:	perl(PerlIO::eol)  
-Requires:	perl(strict)  
-Requires:	perl(Test::HTTP::Server::Simple::StashWarnings)  
+Requires:	perl(DBD::SQLite)
+Requires:	perl(GnuPG::Interface)
+Requires:	perl(PerlIO::eol)
+Requires:	perl(strict)
+Requires:	perl(Test::HTTP::Server::Simple::StashWarnings)
 
 %description tests
 %{summary}
@@ -641,7 +640,7 @@ fi
 * Mon Dec 30 2013 Nico Kadel-Garcia <nkadelgarcia-consultant@scholastic.com> - 4.0.18-0.4
 - Move Perl modulees correctly to perl_vendorarch, so other software can
   find them.
-- Change '%%datarootdir' to '%%datadir' 
+- Change '%%datarootdir' to '%%datadir'
 
 * Mon Dec  9 2013 Nico Kadel-Garcia <nkadelgarcia-consultant@scholastic.com> - 4.0.18-0.3
 - Filter spurious Provides for perl(Log::Dispatch)
@@ -730,7 +729,7 @@ fi
 - Add BR: perl(Digest::SHA).
 
 * Sat Apr 16 2011 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.10-2
-- Work-around rpm's depgenerator defect: 
+- Work-around rpm's depgenerator defect:
   Filter Requires: perl(DBIx::SearchBuilder::Handle::).
 
 * Sat Apr 16 2011 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.10-1
@@ -760,7 +759,7 @@ fi
 * Fri May 07 2010 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.8-1
 - Upstream update.
 - Add %%{_datadir}/rt4/fonts
-- Use system-wide google-droid-fonts instead of bundled 
+- Use system-wide google-droid-fonts instead of bundled
   Droid fonts.
 - Add rt-3.8.8-Makefile.diff.
 - Remove rt-3.8.6-Makefile.diff.
@@ -778,7 +777,7 @@ fi
 
 * Fri Dec 04 2009 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.6-1
 - Upstream update.
-- Remove rt-3.8.4-Makefile.diff, rt-3.8.4-test-dependencies.diff, 
+- Remove rt-3.8.4-Makefile.diff, rt-3.8.4-test-dependencies.diff,
   rt-3.8.4-rh-bz543962.diff.
 - Add rt-3.8.6-Makefile.diff, rt-3.8.6-test-dependencies.diff
 

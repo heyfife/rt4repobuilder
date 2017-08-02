@@ -6,7 +6,7 @@ diff -Naur rt-4.0.10/etc/RT_SiteConfig.pm.orig   rt-4.0.10/etc/RT_SiteConfig.pm
  # this comamnd:
  #
 -#   perl -c /path/to/your/etc/RT_SiteConfig.pm
-+#   perl -c /etc/rt4/RT_Siteconfig.pm
++#   perl -c /etc/rt4/RT_SiteConfig.pm
  #
  # You must restart your webserver after making changes to this file.
  

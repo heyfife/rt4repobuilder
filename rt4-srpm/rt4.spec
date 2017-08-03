@@ -436,12 +436,11 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
 
 %build
 %configure \
-    --with-apachectl=/usr/sbin/apachectl \
     --with-web-user=apache \
     --with-web-group=apache \
-    --with-db-type=mysql \
+    --with-db-type=Pg \
     --enable-layout=Fedora \
-    --with-web-handler=modperl2 \
+    --with-web-handler=fastcgi \
     --libdir=%{RT4_LIBDIR} \
 %{?with_graphviz:--enable-graphviz}%{!?with_graphviz:--disable-graphviz} \
 %{?with_gd:--enable-gd}%{!?with_gd:--disable-gd} \

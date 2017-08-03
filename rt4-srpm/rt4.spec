@@ -368,7 +368,6 @@ rm -rf autom4te.cache config.log config.status
 find bin sbin etc -name '*.in' | while read a; do d=$(echo "$a" | sed 's,\.in$,,'); rm "$d"; done
 
 %patch0 -p1
-%patch1 -p1
 
 # Fix DESTDIR support
 cp Makefile.in Makefile.in.orig

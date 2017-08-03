@@ -67,10 +67,10 @@ install:: $(MOCKS)
 	    echo "$$repo" | awk -F- '{print $$2,$$3}' | while read yumrelease yumarch; do \
 		rpmdir=$(REPOBASEDIR)/$$yumrelease/$$yumarch; \
 		srpmdir=$(REPOBASEDIR)/$$yumrelease/SRPMS; \
-		echo "	Pusning SRPMS to $$srpmdir"; \
+		echo "	Pushing SRPMS to $$srpmdir"; \
 		rsync $(RSYNCSAFEOPTS) $$repo/*.src.rpm $$srpmdir/. || exit 1; \
 		createrepo -q $$srpmdir/.; \
-		echo "	Pusning RPMS to $$rpmdir"; \
+		echo "	Pushing RPMS to $$rpmdir"; \
 		rsync $(RSYNCSAFEOPTS) --exclude=*.src.rpm --exclude=*debuginfo*.rpm $$repo/*.rpm $$rpmdir/. || exit 1; \
 		createrepo -q $$rpmdir/.; \
 	    done; \

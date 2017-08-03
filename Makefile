@@ -10,6 +10,8 @@ REPOBASEDIR="`/bin/pwd`"
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/SRPMS
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/x86_64
 
+MFLAGS="--debug=a"
+
 # These build with normal mock "epel-*" setups
 EPELPKGS+=google-droid-sans-fonts-srpm
 EPELPKGS+=perl-CGI-PSGI-srpm
@@ -176,12 +178,12 @@ perl-RT-Extension-MandatoryFields:: rt4-srpm
 
 # Build EPEL compatible softwaer in place
 $(EPELPKGS):: FORCE
-	(cd $@ && $(MAKE) $(MLAGS)) || exit 1
+	(cd $@ && $(MAKE) $(MFLAGS)) || exit 1
 
 $(RT4PKGS):: rt4repo-7-x86_64.cfg
 
 $(RT4PKGS):: FORCE
-	(cd $@ && $(MAKE) $(MLAGS)) || exit 1
+	(cd $@ && $(MAKE) $(MFLAGS)) || exit 1
 
 # Needed for local compilation, only use for dev environments
 build:: rt4repo.repo

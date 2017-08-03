@@ -7,8 +7,6 @@
 # Base directory for yum repository
 REPOBASEDIR="`/bin/pwd`"
 # Base subdirectories for RPM deployment
-REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/6/SRPMS
-REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/6/x86_64
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/SRPMS
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/x86_64
 
@@ -45,7 +43,6 @@ EPELPKGS+=perl-PadWalker-srpm
 EPELPKGS+=perl-Proc-Wait3-srpm
 EPELPKGS+=perl-Regexp-Common-Net-CIDR-srpm
 EPELPKGS+=perl-Scope-Guard-srpm
-EPELPKGS+=perl-String-RewritePrefix-srpm
 EPELPKGS+=perl-Test-CheckManifest-srpm
 EPELPKGS+=perl-Test-HTTP-Server-Simple-srpm
 EPELPKGS+=perl-Test-Log-Dispatch-srpm
@@ -141,13 +138,6 @@ all:: epel-install
 all:: rt4-install
 
 install:: epel-install rt4-install
-
-rt4repo-6-x86_64.cfg:: rt4repo-6-x86_64.cfg.in
-	sed "s|@@@REPOBASEDIR@@@|$(REPOBASEDIR)|g" $? > $@
-
-rt4repo-6-x86_64.cfg:: FORCE
-	@cmp -s $@ /etc/mock/$@ || \
-		(echo Warning: /etc/mock/$@ does not match $@, exiting; exit 1)
 
 rt4repo-7-x86_64.cfg:: rt4repo-7-x86_64.cfg.in
 	sed "s|@@@REPOBASEDIR@@@|$(REPOBASEDIR)|g" $? > $@
@@ -274,7 +264,6 @@ perl-RT-Extension-MandatoryFields:: rt4-srpm
 $(EPELPKGS):: FORCE
 	(cd $@ && $(MAKE) $(MLAGS)) || exit 1
 
-$(RT4PKGS):: rt4repo-6-x86_64.cfg
 $(RT4PKGS):: rt4repo-7-x86_64.cfg
 
 $(RT4PKGS):: FORCE
@@ -326,4 +315,3 @@ publish:: FORCE
 	done
 
 FORCE::
-

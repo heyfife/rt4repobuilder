@@ -9,6 +9,7 @@ Source0:        http://www.cpan.org/modules/by-module/DateTime/DateTime-Format-N
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl(boolean)
+BuildRequires:  perl(CPAN)
 BuildRequires:  perl(Carp)
 BuildRequires:  perl(Clone)
 BuildRequires:  perl(Cwd)

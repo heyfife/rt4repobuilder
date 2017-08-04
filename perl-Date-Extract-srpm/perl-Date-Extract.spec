@@ -9,6 +9,7 @@ Source0:        http://www.cpan.org/authors/id/A/AL/ALEXMV/Date-Extract-%{versio
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl(Carp)
+BuildRequires:  perl(CPAN)
 BuildRequires:  perl(Class::Data::Inheritable)
 BuildRequires:  perl(DateTime::Format::Natural) >= 0.60
 BuildRequires:  perl(ExtUtils::MakeMaker)

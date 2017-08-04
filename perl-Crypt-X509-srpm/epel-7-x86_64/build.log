@@ -1,0 +1,93 @@
+Mock Version: 1.4.2
+ENTER ['do'](['bash', '--login', '-c', '/usr/bin/rpmbuild -bs --target x86_64 --nodeps /builddir/build/SPECS/perl-Crypt-X509.spec'], nspawn_args=[]shell=Falseuid=1000env={'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '}chrootPath='/var/lib/mock/epel-7-x86_64/root'gid=135user='mockbuild'timeout=0logger=<mockbuild.trace_decorator.getLog object at 0x274b290>printOutput=False)
+Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '34bcd52bfdf44267ba33419b58de8178', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', 'bash', '--login', '-c', '/usr/bin/rpmbuild -bs --target x86_64 --nodeps /builddir/build/SPECS/perl-Crypt-X509.spec'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+Building target platforms: x86_64
+Building for target x86_64
+Wrote: /builddir/build/SRPMS/perl-Crypt-X509-0.51-1.el7.centos.src.rpm
+Child return code was: 0
+ENTER ['do'](['bash', '--login', '-c', u'/usr/bin/rpmbuild -bb --target x86_64 --nodeps /builddir/build/SPECS/perl-Crypt-X509.spec'], nspawn_args=['--private-network']shell=Falseuid=1000env={'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '}chrootPath='/var/lib/mock/epel-7-x86_64/root'gid=135user='mockbuild'timeout=0logger=<mockbuild.trace_decorator.getLog object at 0x274b290>printOutput=False)
+Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', 'dd705bfc0386445697f5e164c9ae9756', '-D', '/var/lib/mock/epel-7-x86_64/root', '--private-network', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', 'bash', '--login', '-c', u'/usr/bin/rpmbuild -bb --target x86_64 --nodeps /builddir/build/SPECS/perl-Crypt-X509.spec'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+Building target platforms: x86_64
+Building for target x86_64
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.DlHv5w
++ umask 022
++ cd /builddir/build/BUILD
++ cd /builddir/build/BUILD
++ rm -rf Crypt-X509-0.51
++ /usr/bin/gzip -dc /builddir/build/SOURCES/Crypt-X509-0.51.tar.gz
++ /usr/bin/tar -xf -
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd Crypt-X509-0.51
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.hJ581d
++ umask 022
++ cd /builddir/build/BUILD
++ cd Crypt-X509-0.51
++ /usr/bin/perl Makefile.PL INSTALLDIRS=vendor
+Checking if your kit is complete...
+Looks good
+Writing Makefile for Crypt::X509
++ make
+cp lib/Crypt/X509.pm blib/lib/Crypt/X509.pm
+Manifying blib/man3/Crypt::X509.3pm
++ exit 0
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.rtwotV
++ umask 022
++ cd /builddir/build/BUILD
++ '[' /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64 '!=' / ']'
++ rm -rf /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64
+++ dirname /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64
++ mkdir -p /builddir/build/BUILDROOT
++ mkdir /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64
++ cd Crypt-X509-0.51
++ rm -rf /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64
++ make pure_install PERL_INSTALL_ROOT=/builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64
+Manifying blib/man3/Crypt::X509.3pm
+Installing /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64/usr/share/perl5/vendor_perl/Crypt/X509.pm
+Installing /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64/usr/share/man/man3/Crypt::X509.3pm
++ find /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64 -type f -name .packlist -exec rm -f '{}' ';'
++ find /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64 -depth -type d -exec rmdir '{}' ';'
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w /builddir/build/BUILDROOT/perl-Crypt-X509-0.51-1.el7.centos.x86_64/usr
++ /usr/lib/rpm/find-debuginfo.sh --strict-build-id -m --run-dwz --dwz-low-mem-die-limit 10000000 --dwz-max-die-limit 110000000 /builddir/build/BUILD/Crypt-X509-0.51
+/usr/lib/rpm/sepdebugcrcfix: Updated 0 CRC32s, 0 CRC32s did match.
++ /usr/lib/rpm/check-buildroot
++ /usr/lib/rpm/redhat/brp-compress
++ /usr/lib/rpm/redhat/brp-strip-static-archive /usr/bin/strip
++ /usr/lib/rpm/brp-python-bytecompile /usr/bin/python 1
++ /usr/lib/rpm/redhat/brp-python-hardlink
++ /usr/lib/rpm/redhat/brp-java-repack-jars
+Executing(%check): /bin/sh -e /var/tmp/rpm-tmp.YvzkdD
++ umask 022
++ cd /builddir/build/BUILD
++ cd Crypt-X509-0.51
++ make test
+PERL_DL_NONLAZY=1 /usr/bin/perl "-MExtUtils::Command::MM" "-e" "test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
+t/Crypt-X509.t .. 
+Dubious, test returned 2 (wstat 512, 0x200)
+No subtests run 
+Test Summary Report
+-------------------
+t/Crypt-X509.t (Wstat: 512 Tests: 0 Failed: 0)
+  Non-zero exit status: 2
+  Parse errors: No plan found in TAP output
+Files=1, Tests=0,  0 wallclock secs ( 0.01 usr +  0.00 sys =  0.01 CPU)
+Result: FAIL
+Can't locate Test/More.pm in @INC (@INC contains: /builddir/build/BUILD/Crypt-X509-0.51/blib/lib /builddir/build/BUILD/Crypt-X509-0.51/blib/arch /usr/local/lib64/perl5 /usr/local/share/perl5 /usr/lib64/perl5/vendor_perl /usr/share/perl5/vendor_perl /usr/lib64/perl5 /usr/share/perl5 .) at t/Crypt-X509.t line 3.
+BEGIN failed--compilation aborted at t/Crypt-X509.t line 3.
+Failed 1/1 test programs. 0/0 subtests failed.
+make: *** [test_dynamic] Error 2
+RPM build errors:
+error: Bad exit status from /var/tmp/rpm-tmp.YvzkdD (%check)
+    Bad exit status from /var/tmp/rpm-tmp.YvzkdD (%check)
+Child return code was: 1
+EXCEPTION: [Error()]
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/mockbuild/trace_decorator.py", line 96, in trace
+    result = func(*args, **kw)
+  File "/usr/lib/python2.7/site-packages/mockbuild/util.py", line 590, in do
+    raise exception.Error("Command failed: \n # %s\n%s" % (command, output), child.returncode)
+Error: Command failed: 
+ # /usr/bin/systemd-nspawn -q -M dd705bfc0386445697f5e164c9ae9756 -D /var/lib/mock/epel-7-x86_64/root --private-network --setenv=LANG=C --setenv=TERM=vt100 --setenv=SHELL=/bin/bash --setenv=HOSTNAME=mock --setenv=PROMPT_COMMAND=printf "\033]0;<mock-chroot>\007" --setenv=HOME=/builddir --setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin --setenv=PS1=<mock-chroot> \s-\v\$  -u mockbuild bash --login -c /usr/bin/rpmbuild -bb --target x86_64 --nodeps /builddir/build/SPECS/perl-Crypt-X509.spec
+

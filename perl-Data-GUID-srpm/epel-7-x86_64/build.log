@@ -1,0 +1,138 @@
+Mock Version: 1.4.2
+ENTER ['do'](['bash', '--login', '-c', '/usr/bin/rpmbuild -bs --target x86_64 --nodeps /builddir/build/SPECS/perl-Data-GUID.spec'], nspawn_args=[]shell=Falseuid=1000env={'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '}chrootPath='/var/lib/mock/epel-7-x86_64/root'gid=135user='mockbuild'timeout=0logger=<mockbuild.trace_decorator.getLog object at 0x2661290>printOutput=False)
+Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '3010f595097145f28a605be0be3a5076', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', 'bash', '--login', '-c', '/usr/bin/rpmbuild -bs --target x86_64 --nodeps /builddir/build/SPECS/perl-Data-GUID.spec'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+Building target platforms: x86_64
+Building for target x86_64
+Wrote: /builddir/build/SRPMS/perl-Data-GUID-0.049-1.el7.centos.src.rpm
+Child return code was: 0
+ENTER ['do'](['bash', '--login', '-c', u'/usr/bin/rpmbuild -bb --target x86_64 --nodeps /builddir/build/SPECS/perl-Data-GUID.spec'], nspawn_args=['--private-network']shell=Falseuid=1000env={'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '}chrootPath='/var/lib/mock/epel-7-x86_64/root'gid=135user='mockbuild'timeout=0logger=<mockbuild.trace_decorator.getLog object at 0x2661290>printOutput=False)
+Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '5b213d7780d74699bfe343b5ef6bd105', '-D', '/var/lib/mock/epel-7-x86_64/root', '--private-network', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', 'bash', '--login', '-c', u'/usr/bin/rpmbuild -bb --target x86_64 --nodeps /builddir/build/SPECS/perl-Data-GUID.spec'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+Building target platforms: x86_64
+Building for target x86_64
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.mvmYDP
++ umask 022
++ cd /builddir/build/BUILD
++ cd /builddir/build/BUILD
++ rm -rf Data-GUID-0.049
++ /usr/bin/gzip -dc /builddir/build/SOURCES/Data-GUID-0.049.tar.gz
++ /usr/bin/tar -xf -
++ STATUS=0
++ '[' 0 -ne 0 ']'
++ cd Data-GUID-0.049
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
++ exit 0
+Executing(%build): /bin/sh -e /var/tmp/rpm-tmp.Zs8kyo
++ umask 022
++ cd /builddir/build/BUILD
++ cd Data-GUID-0.049
++ /usr/bin/perl Makefile.PL INSTALLDIRS=vendor
+Checking if your kit is complete...
+Looks good
+Writing Makefile for Data::GUID
++ make
+cp lib/Data/GUID.pm blib/lib/Data/GUID.pm
+Manifying blib/man3/Data::GUID.3pm
++ exit 0
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.Kp232X
++ umask 022
++ cd /builddir/build/BUILD
++ '[' /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64 '!=' / ']'
++ rm -rf /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64
+++ dirname /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64
++ mkdir -p /builddir/build/BUILDROOT
++ mkdir /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64
++ cd Data-GUID-0.049
++ rm -rf /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64
++ make pure_install PERL_INSTALL_ROOT=/builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64
+Manifying blib/man3/Data::GUID.3pm
+Installing /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/perl5/vendor_perl/Data/GUID.pm
+Installing /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/man/man3/Data::GUID.3pm
++ find /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64 -type f -name .packlist -exec rm -f '{}' ';'
++ find /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64 -depth -type d -exec rmdir '{}' ';'
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr
++ /usr/lib/rpm/find-debuginfo.sh --strict-build-id -m --run-dwz --dwz-low-mem-die-limit 10000000 --dwz-max-die-limit 110000000 /builddir/build/BUILD/Data-GUID-0.049
+/usr/lib/rpm/sepdebugcrcfix: Updated 0 CRC32s, 0 CRC32s did match.
++ /usr/lib/rpm/check-buildroot
++ /usr/lib/rpm/redhat/brp-compress
++ /usr/lib/rpm/redhat/brp-strip-static-archive /usr/bin/strip
++ /usr/lib/rpm/brp-python-bytecompile /usr/bin/python 1
++ /usr/lib/rpm/redhat/brp-python-hardlink
++ /usr/lib/rpm/redhat/brp-java-repack-jars
+Executing(%check): /bin/sh -e /var/tmp/rpm-tmp.oxfsSx
++ umask 022
++ cd /builddir/build/BUILD
++ cd Data-GUID-0.049
++ make test
+PERL_DL_NONLAZY=1 /usr/bin/perl "-MExtUtils::Command::MM" "-e" "test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
+t/00-load.t ............ ok
+# Testing Data::GUID 0.049
+t/00-report-prereqs.t .. ok
+# 
+# Versions for all modules listed in static metadata (including optional ones):
+# 
+# === Configure Requires ===
+# 
+#     Module              Want Have
+#     ------------------- ---- ----
+#     ExtUtils::MakeMaker  any 6.68
+# 
+# === Test Requires ===
+# 
+#     Module              Want Have
+#     ------------------- ---- ----
+#     ExtUtils::MakeMaker  any 6.68
+#     File::Spec           any 3.40
+#     Test::More          0.96 0.98
+# 
+# === Test Recommends ===
+# 
+#     Module         Want    Have
+#     ---------- -------- -------
+#     CPAN::Meta 2.120900 missing
+# 
+# === Runtime Requires ===
+# 
+#     Module         Want  Have
+#     ------------- ----- -----
+#     Carp            any  1.26
+#     Data::UUID    1.148 1.219
+#     Sub::Exporter  0.90 0.986
+#     Sub::Install   0.03 0.926
+#     bytes           any  1.04
+#     overload        any  1.18
+#     strict          any  1.07
+#     warnings        any  1.13
+# 
+t/basic.t .............. ok
+t/import.t ............. ok
+t/multipass_from.t ..... ok
+All tests successful.
+Files=5, Tests=96,  1 wallclock secs ( 0.02 usr  0.01 sys +  0.21 cusr  0.03 csys =  0.27 CPU)
+Result: PASS
++ exit 0
+Processing files: perl-Data-GUID-0.049-1.el7.centos.noarch
+Executing(%doc): /bin/sh -e /var/tmp/rpm-tmp.Jmild8
++ umask 022
++ cd /builddir/build/BUILD
++ cd Data-GUID-0.049
++ DOCDIR=/builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/doc/perl-Data-GUID-0.049
++ export DOCDIR
++ /usr/bin/mkdir -p /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/doc/perl-Data-GUID-0.049
++ cp -pr Changes /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/doc/perl-Data-GUID-0.049
++ cp -pr dist.ini /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/doc/perl-Data-GUID-0.049
++ cp -pr LICENSE /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/doc/perl-Data-GUID-0.049
++ cp -pr META.json /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/doc/perl-Data-GUID-0.049
++ cp -pr README /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64/usr/share/doc/perl-Data-GUID-0.049
++ exit 0
+Provides: perl(Data::GUID) = 0.049 perl-Data-GUID = 0.049-1.el7.centos
+Requires(rpmlib): rpmlib(CompressedFileNames) <= 3.0.4-1 rpmlib(FileDigests) <= 4.6.0-1 rpmlib(PayloadFilesHavePrefix) <= 4.0-1
+Requires: perl(Carp) perl(Data::UUID) >= 1.148 perl(Sub::Exporter) >= 0.90 perl(Sub::Install) >= 0.03 perl(strict) perl(warnings)
+Checking for unpackaged file(s): /usr/lib/rpm/check-files /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64
+Wrote: /builddir/build/RPMS/perl-Data-GUID-0.049-1.el7.centos.noarch.rpm
+Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.jSVJ3i
++ umask 022
++ cd /builddir/build/BUILD
++ cd Data-GUID-0.049
++ rm -rf /builddir/build/BUILDROOT/perl-Data-GUID-0.049-1.el7.centos.x86_64
++ exit 0
+Child return code was: 0

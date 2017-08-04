@@ -1,0 +1,83 @@
+INFO buildroot.py:345:  Mock Version: 1.4.2
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/etc/fstab
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/etc/yum/yum.conf
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/etc/dnf.conf
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/var/log/yum.log
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/var/cache/yum/
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/bin/mount', '-n', '--bind', '/var/cache/mock/epel-7-x86_64/yum_cache/', '/var/lib/mock/epel-7-x86_64/root/var/cache/yum/'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/sh', 'HOSTNAME': 'mock', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin'} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG buildroot.py:140:  rootdir = /var/lib/mock/epel-7-x86_64/root
+DEBUG buildroot.py:141:  resultdir = /home/fife/rt4repobuilder/perl-Date-Extract-srpm/epel-7-x86_64
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/etc/pki/mock
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/etc/yum/pluginconf.d
+DEBUG package_manager.py:236:  configure yum
+DEBUG package_manager.py:242:  configure yum priorities
+DEBUG package_manager.py:244:  configure yum rhnplugin
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', 'a4d4aad13ca34958aa40307eaf3736c4', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/userdel', '-r', '-f', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '1fba6bfda0864834947478eef43489bf', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/groupdel', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  groupdel: group 'mockbuild' does not exist
+DEBUG util.py:588:  Child return code was: 6
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '687170ae27994228b23e4d49c6a34792', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/groupadd', '-g', '135', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '0e40b4672a6d4bf584a58a1de1daba52', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/useradd', '-o', '-m', '-u', '1000', '-g', '135', '-d', '/builddir', '-n', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/RPMS
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/RPMS
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/SPECS
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/SPECS
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/SRPMS
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/SRPMS
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/SOURCES
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/SOURCES
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILD
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILD
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILDROOT
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILDROOT
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/originals
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/originals
+DEBUG package_manager.py:107:  ['/usr/bin/yum', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '-y', '--releasever', '7', 'update']
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/yum', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '-y', '--releasever', '7', 'update'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'LC_MESSAGES': 'C.UTF-8', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Failed to set locale, defaulting to C
+DEBUG util.py:450:  No packages marked for update
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/.initialized
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '24773ede5c5d4f29b975d72411c232d5', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', '/bin/rpm', '-Uvh', '--nodeps', '/builddir/build/originals/epel-7-x86_64.src.rpm'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Updating / installing...
+DEBUG util.py:450:  perl-Date-Extract-0.06-1.el7.centos   ########################################
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', 'd7b5cafef0fa4e56987bd2d4187c3013', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', '/bin/rpm', '-qpl', '/builddir/build/originals/epel-7-x86_64.src.rpm'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Date-Extract-0.06.tar.gz
+DEBUG util.py:450:  perl-Date-Extract.spec
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG package_manager.py:107:  ['/usr/bin/yum-builddep', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '--releasever', '7', '/var/lib/mock/epel-7-x86_64/root//builddir/build/SRPMS/perl-Date-Extract-0.06-1.el7.centos.src.rpm']
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/yum-builddep', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '--releasever', '7', '/var/lib/mock/epel-7-x86_64/root//builddir/build/SRPMS/perl-Date-Extract-0.06-1.el7.centos.src.rpm'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'LC_MESSAGES': 'C.UTF-8', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Failed to set locale, defaulting to C
+DEBUG util.py:450:  Getting requirements for perl-Date-Extract-0.06-1.el7.centos.src
+DEBUG util.py:450:   --> Already installed : perl-Carp-1.26-244.el7.noarch
+DEBUG util.py:450:   --> perl-Class-Data-Inheritable-0.08-14.el7.noarch
+DEBUG util.py:450:   --> perl-ExtUtils-MakeMaker-6.68-3.el7.noarch
+DEBUG util.py:450:   --> Already installed : perl-Scalar-List-Utils-1.27-248.el7.x86_64
+DEBUG util.py:450:   --> Already installed : 1:perl-parent-0.225-244.el7.noarch
+DEBUG util.py:450:   --> perl-Test-MockTime-0.12-11.el7.noarch
+DEBUG util.py:450:   --> perl-Test-Simple-0.98-243.el7.noarch
+DEBUG util.py:450:  Error: No Package found for perl(DateTime::Format::Natural) >= 0.60
+DEBUG util.py:588:  Child return code was: 1
+DEBUG util.py:197:  kill orphans
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/bin/umount', '-n', '/var/lib/mock/epel-7-x86_64/root/var/cache/yum/'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/sh', 'HOSTNAME': 'mock', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin'} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['btrfs', 'subv', 'list', '/var/lib/mock'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/sh', 'HOSTNAME': 'mock', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin'} and shell False
+DEBUG util.py:588:  Child return code was: 1
+DEBUG util.py:1275:  Please ignore the error above above about btrfs.

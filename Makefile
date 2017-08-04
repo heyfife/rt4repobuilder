@@ -19,6 +19,7 @@ EPELPKGS+=perl-Cache-Simple-TimedExpiry-srpm
 EPELPKGS+=perl-Calendar-Simple-srpm
 EPELPKGS+=perl-Carp-Assert-More-srpm
 EPELPKGS+=perl-Class-Container-srpm
+EPELPKGS+=perl-Data-GUID-srpm
 EPELPKGS+=perl-DBIx-DBschema-srpm
 EPELPKGS+=perl-Expect-Simple-srpm
 EPELPKGS+=perl-ExtUtils-Installed-srpm
@@ -76,6 +77,12 @@ RT4PKGS+=perl-Test-HTTP-Server-Simple-StashWarnings-srpm
 # Needed for rt4-Test building
 RT4PKGS+=perl-Test-WWW-Mechanize-PSGI-srpm
 RT4PKGS+=perl-Plack-Middleware-Test-StashWarnings-srpm
+
+RT4PKGS+=perl-DateTime-Format-Natural-srpm
+RT4PKGS+=perl-Date-Extract-srpm
+RT4PKGS+=perl-Data-Page-Pageset-srpm
+RT4PKGS+=perl-perl-Data-GUID-srpm
+RT4PKGS+=perl-Crypt-X509-srpm
 
 # Binary target
 RT4PKGS+=rt4-srpm

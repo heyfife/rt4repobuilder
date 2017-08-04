@@ -1,0 +1,15 @@
+2017-08-04 04:01:18,642 - Mock Version: 1.4.2
+2017-08-04 04:01:18,944 - Start: yum update
+2017-08-04 04:01:24,197 - Finish: yum update
+2017-08-04 04:01:24,214 - Finish: chroot init
+2017-08-04 04:01:24,218 - Start: build phase for epel-7-x86_64.src.rpm
+2017-08-04 04:01:24,220 - Start: build setup for epel-7-x86_64.src.rpm
+2017-08-04 04:01:28,758 - Finish: build setup for epel-7-x86_64.src.rpm
+2017-08-04 04:01:28,758 - Start: rpmbuild epel-7-x86_64.src.rpm
+2017-08-04 04:01:28,760 - Start: Outputting list of installed packages
+2017-08-04 04:01:28,967 - Finish: Outputting list of installed packages
+2017-08-04 04:01:30,219 - Finish: rpmbuild epel-7-x86_64.src.rpm
+2017-08-04 04:01:30,224 - Finish: build phase for epel-7-x86_64.src.rpm
+2017-08-04 04:01:30,225 - Start: clean chroot
+2017-08-04 04:01:34,501 - Finish: clean chroot
+2017-08-04 04:01:34,501 - Finish: run

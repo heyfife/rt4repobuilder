@@ -1,0 +1,35 @@
+CPU info:
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                1
+On-line CPU(s) list:   0
+Thread(s) per core:    1
+Core(s) per socket:    1
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 78
+Model name:            Intel(R) Core(TM) m7-6Y75 CPU @ 1.20GHz
+Stepping:              3
+CPU MHz:               1294.615
+BogoMIPS:              2591.28
+Hypervisor vendor:     VMware
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              4096K
+NUMA node0 CPU(s):     0
+
+
+Memory:
+              total        used        free      shared  buff/cache   available
+Mem:         999936      155368       75328        4016      769240      634988
+Swap:       2097148        6344     2090804
+
+
+Storage:
+Filesystem           Size  Used Avail Use% Mounted on
+/dev/mapper/cl-root   19G  2.4G   16G  13% /

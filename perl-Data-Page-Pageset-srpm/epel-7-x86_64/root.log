@@ -1,0 +1,288 @@
+INFO buildroot.py:345:  Mock Version: 1.4.2
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/etc/fstab
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/etc/yum/yum.conf
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/etc/dnf.conf
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/var/log/yum.log
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/var/cache/yum/
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/bin/mount', '-n', '--bind', '/var/cache/mock/epel-7-x86_64/yum_cache/', '/var/lib/mock/epel-7-x86_64/root/var/cache/yum/'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/sh', 'HOSTNAME': 'mock', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin'} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG buildroot.py:140:  rootdir = /var/lib/mock/epel-7-x86_64/root
+DEBUG buildroot.py:141:  resultdir = /home/fife/rt4repobuilder/perl-Data-Page-Pageset-srpm/epel-7-x86_64
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/etc/pki/mock
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/etc/yum/pluginconf.d
+DEBUG package_manager.py:236:  configure yum
+DEBUG package_manager.py:242:  configure yum priorities
+DEBUG package_manager.py:244:  configure yum rhnplugin
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '55def87ce6064bd093594d81c7f53600', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/userdel', '-r', '-f', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '6cad1e339099423a83c756a8ed099970', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/groupdel', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  groupdel: group 'mockbuild' does not exist
+DEBUG util.py:588:  Child return code was: 6
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', 'e996cc6c197448dc92d3b1c4678473dd', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/groupadd', '-g', '135', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '7fb970fac27f4980a5df57ae5f647af6', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '/usr/sbin/useradd', '-o', '-m', '-u', '1000', '-g', '135', '-d', '/builddir', '-n', 'mockbuild'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/RPMS
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/RPMS
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/SPECS
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/SPECS
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/SRPMS
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/SRPMS
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/SOURCES
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/SOURCES
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILD
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILD
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILDROOT
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/BUILDROOT
+DEBUG util.py:109:  ensuring that dir exists: /var/lib/mock/epel-7-x86_64/root/builddir/build/originals
+DEBUG util.py:112:  creating dir: /var/lib/mock/epel-7-x86_64/root/builddir/build/originals
+DEBUG package_manager.py:107:  ['/usr/bin/yum', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '-y', '--releasever', '7', 'update']
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/yum', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '-y', '--releasever', '7', 'update'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'LC_MESSAGES': 'C.UTF-8', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Failed to set locale, defaulting to C
+DEBUG util.py:450:  Not using downloaded repomd.xml because it is older than what we have:
+DEBUG util.py:450:    Current   : Fri Aug  4 02:19:23 2017
+DEBUG util.py:450:    Downloaded: Wed Aug  2 16:34:48 2017
+DEBUG util.py:450:  No packages marked for update
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:122:  touching file: /var/lib/mock/epel-7-x86_64/root/.initialized
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '735fbe0d65db408983e0547ea5c46cc5', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', '/bin/rpm', '-Uvh', '--nodeps', '/builddir/build/originals/epel-7-x86_64.src.rpm'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Updating / installing...
+DEBUG util.py:450:  perl-Data-Page-Pageset-1.02-1.el7.cent########################################
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/systemd-nspawn', '-q', '-M', '04d5dc5629f84ec5a48d1b5d3feea6fd', '-D', '/var/lib/mock/epel-7-x86_64/root', '--setenv=LANG=C', '--setenv=TERM=vt100', '--setenv=SHELL=/bin/bash', '--setenv=HOSTNAME=mock', '--setenv=PROMPT_COMMAND=printf "\\033]0;<mock-chroot>\\007"', '--setenv=HOME=/builddir', '--setenv=PATH=/usr/bin:/bin:/usr/sbin:/sbin', '--setenv=PS1=<mock-chroot> \\s-\\v\\$ ', '-u', 'mockbuild', '/bin/rpm', '-qpl', '/builddir/build/originals/epel-7-x86_64.src.rpm'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Data-Page-Pageset-1.02.tar.gz
+DEBUG util.py:450:  perl-Data-Page-Pageset.spec
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG package_manager.py:107:  ['/usr/bin/yum-builddep', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '--releasever', '7', '/var/lib/mock/epel-7-x86_64/root//builddir/build/SRPMS/perl-Data-Page-Pageset-1.02-1.el7.centos.src.rpm']
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/usr/bin/yum-builddep', '--installroot', '/var/lib/mock/epel-7-x86_64/root/', '--releasever', '7', '/var/lib/mock/epel-7-x86_64/root//builddir/build/SRPMS/perl-Data-Page-Pageset-1.02-1.el7.centos.src.rpm'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'LC_MESSAGES': 'C.UTF-8', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell False
+DEBUG util.py:450:  Failed to set locale, defaulting to C
+DEBUG util.py:450:  Getting requirements for perl-Data-Page-Pageset-1.02-1.el7.centos.src
+DEBUG util.py:450:   --> 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Running transaction check
+DEBUG util.py:450:  ---> Package perl-Module-Build.noarch 2:0.40.05-2.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: perl(version) >= 0.87 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Perl::OSType) >= 1 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Module::Metadata) >= 1.000002 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(ExtUtils::ParseXS) >= 2.21 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(ExtUtils::Manifest) >= 1.54 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(ExtUtils::Install) >= 0.3 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(ExtUtils::CBuilder) >= 0.27 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(CPAN::Meta::YAML) >= 0.003 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(CPAN::Meta) >= 2.110420 for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Test::Harness) for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(ExtUtils::Mkbootstrap) for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(ExtUtils::MakeMaker) for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Data::Dumper) for package: 2:perl-Module-Build-0.40.05-2.el7.noarch
+DEBUG util.py:450:  --> Running transaction check
+DEBUG util.py:450:  ---> Package perl-CPAN-Meta.noarch 0:2.120921-5.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: perl(Parse::CPAN::Meta) >= 1.4403 for package: perl-CPAN-Meta-2.120921-5.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Parse::CPAN::Meta) >= 1.4400 for package: perl-CPAN-Meta-2.120921-5.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(CPAN::Meta::Requirements) >= 2.121 for package: perl-CPAN-Meta-2.120921-5.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(CPAN::Meta::Requirements) for package: perl-CPAN-Meta-2.120921-5.el7.noarch
+DEBUG util.py:450:  ---> Package perl-CPAN-Meta-YAML.noarch 0:0.008-14.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-Data-Dumper.x86_64 0:2.145-3.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-ExtUtils-CBuilder.noarch 1:0.28.2.6-291.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: perl-devel for package: 1:perl-ExtUtils-CBuilder-0.28.2.6-291.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(IPC::Cmd) for package: 1:perl-ExtUtils-CBuilder-0.28.2.6-291.el7.noarch
+DEBUG util.py:450:  ---> Package perl-ExtUtils-Install.noarch 0:1.58-291.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-ExtUtils-MakeMaker.noarch 0:6.68-3.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-ExtUtils-Manifest.noarch 0:1.61-244.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-ExtUtils-ParseXS.noarch 1:3.18-2.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-Module-Metadata.noarch 0:1.000018-2.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-Perl-OSType.noarch 0:1.003-3.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-Test-Harness.noarch 0:3.28-3.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-version.x86_64 3:0.99.07-2.el7 will be installed
+DEBUG util.py:450:  --> Running transaction check
+DEBUG util.py:450:  ---> Package perl-CPAN-Meta-Requirements.noarch 0:2.122-7.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-IPC-Cmd.noarch 1:0.80-4.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: perl(Params::Check) >= 0.20 for package: 1:perl-IPC-Cmd-0.80-4.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Module::Load::Conditional) for package: 1:perl-IPC-Cmd-0.80-4.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Locale::Maketext::Simple) for package: 1:perl-IPC-Cmd-0.80-4.el7.noarch
+DEBUG util.py:450:  ---> Package perl-Parse-CPAN-Meta.noarch 1:1.4404-5.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: perl(JSON::PP) >= 2.27200 for package: 1:perl-Parse-CPAN-Meta-1.4404-5.el7.noarch
+DEBUG util.py:450:  ---> Package perl-devel.x86_64 4:5.16.3-291.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: systemtap-sdt-devel for package: 4:perl-devel-5.16.3-291.el7.x86_64
+DEBUG util.py:450:  --> Processing Dependency: libdb-devel for package: 4:perl-devel-5.16.3-291.el7.x86_64
+DEBUG util.py:450:  --> Processing Dependency: gdbm-devel for package: 4:perl-devel-5.16.3-291.el7.x86_64
+DEBUG util.py:450:  --> Running transaction check
+DEBUG util.py:450:  ---> Package gdbm-devel.x86_64 0:1.10-8.el7 will be installed
+DEBUG util.py:450:  ---> Package libdb-devel.x86_64 0:5.3.21-19.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-JSON-PP.noarch 0:2.27202-2.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-Locale-Maketext-Simple.noarch 1:0.21-291.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: perl(Locale::Maketext) for package: 1:perl-Locale-Maketext-Simple-0.21-291.el7.noarch
+DEBUG util.py:450:  ---> Package perl-Module-Load-Conditional.noarch 0:0.54-3.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: perl(Module::Load) >= 0.11 for package: perl-Module-Load-Conditional-0.54-3.el7.noarch
+DEBUG util.py:450:  --> Processing Dependency: perl(Module::CoreList) >= 2.22 for package: perl-Module-Load-Conditional-0.54-3.el7.noarch
+DEBUG util.py:450:  ---> Package perl-Params-Check.noarch 1:0.38-2.el7 will be installed
+DEBUG util.py:450:  ---> Package systemtap-sdt-devel.x86_64 0:3.0-7.el7 will be installed
+DEBUG util.py:450:  --> Processing Dependency: pyparsing for package: systemtap-sdt-devel-3.0-7.el7.x86_64
+DEBUG util.py:450:  --> Processing Dependency: /usr/bin/python for package: systemtap-sdt-devel-3.0-7.el7.x86_64
+DEBUG util.py:450:  --> Running transaction check
+DEBUG util.py:450:  ---> Package perl-Locale-Maketext.noarch 0:1.23-3.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-Module-CoreList.noarch 1:2.76.02-291.el7 will be installed
+DEBUG util.py:450:  ---> Package perl-Module-Load.noarch 1:0.24-3.el7 will be installed
+DEBUG util.py:450:  ---> Package pyparsing.noarch 0:1.5.6-9.el7 will be installed
+DEBUG util.py:450:  ---> Package python.x86_64 0:2.7.5-48.el7 will be installed
+DEBUG util.py:450:  --> Finished Dependency Resolution
+DEBUG util.py:450:  Dependencies Resolved
+DEBUG util.py:450:  ================================================================================
+DEBUG util.py:450:   Package                         Arch      Version                Repository
+DEBUG util.py:450:                                                                             Size
+DEBUG util.py:450:  ================================================================================
+DEBUG util.py:450:  Installing:
+DEBUG util.py:450:   perl-Module-Build               noarch    2:0.40.05-2.el7        base    281 k
+DEBUG util.py:450:  Installing for dependencies:
+DEBUG util.py:450:   gdbm-devel                      x86_64    1.10-8.el7             base     47 k
+DEBUG util.py:450:   libdb-devel                     x86_64    5.3.21-19.el7          base     38 k
+DEBUG util.py:450:   perl-CPAN-Meta                  noarch    2.120921-5.el7         base    113 k
+DEBUG util.py:450:   perl-CPAN-Meta-Requirements     noarch    2.122-7.el7            base     24 k
+DEBUG util.py:450:   perl-CPAN-Meta-YAML             noarch    0.008-14.el7           base     24 k
+DEBUG util.py:450:   perl-Data-Dumper                x86_64    2.145-3.el7            base     47 k
+DEBUG util.py:450:   perl-ExtUtils-CBuilder          noarch    1:0.28.2.6-291.el7     base     67 k
+DEBUG util.py:450:   perl-ExtUtils-Install           noarch    1.58-291.el7           base     74 k
+DEBUG util.py:450:   perl-ExtUtils-MakeMaker         noarch    6.68-3.el7             base    275 k
+DEBUG util.py:450:   perl-ExtUtils-Manifest          noarch    1.61-244.el7           base     31 k
+DEBUG util.py:450:   perl-ExtUtils-ParseXS           noarch    1:3.18-2.el7           base     77 k
+DEBUG util.py:450:   perl-IPC-Cmd                    noarch    1:0.80-4.el7           base     34 k
+DEBUG util.py:450:   perl-JSON-PP                    noarch    2.27202-2.el7          base     55 k
+DEBUG util.py:450:   perl-Locale-Maketext            noarch    1.23-3.el7             base     93 k
+DEBUG util.py:450:   perl-Locale-Maketext-Simple     noarch    1:0.21-291.el7         base     50 k
+DEBUG util.py:450:   perl-Module-CoreList            noarch    1:2.76.02-291.el7      base     85 k
+DEBUG util.py:450:   perl-Module-Load                noarch    1:0.24-3.el7           base     11 k
+DEBUG util.py:450:   perl-Module-Load-Conditional    noarch    0.54-3.el7             base     18 k
+DEBUG util.py:450:   perl-Module-Metadata            noarch    1.000018-2.el7         base     26 k
+DEBUG util.py:450:   perl-Params-Check               noarch    1:0.38-2.el7           base     18 k
+DEBUG util.py:450:   perl-Parse-CPAN-Meta            noarch    1:1.4404-5.el7         base     14 k
+DEBUG util.py:450:   perl-Perl-OSType                noarch    1.003-3.el7            base     20 k
+DEBUG util.py:450:   perl-Test-Harness               noarch    3.28-3.el7             base    302 k
+DEBUG util.py:450:   perl-devel                      x86_64    4:5.16.3-291.el7       base    453 k
+DEBUG util.py:450:   perl-version                    x86_64    3:0.99.07-2.el7        base     84 k
+DEBUG util.py:450:   pyparsing                       noarch    1.5.6-9.el7            base     94 k
+DEBUG util.py:450:   python                          x86_64    2.7.5-48.el7           base     90 k
+DEBUG util.py:450:   systemtap-sdt-devel             x86_64    3.0-7.el7              base     69 k
+DEBUG util.py:450:  Transaction Summary
+DEBUG util.py:450:  ================================================================================
+DEBUG util.py:450:  Install  1 Package (+28 Dependent packages)
+DEBUG util.py:450:  Total size: 2.6 M
+DEBUG util.py:450:  Total download size: 1.0 M
+DEBUG util.py:450:  Installed size: 6.5 M
+DEBUG util.py:450:  Downloading packages:
+DEBUG util.py:450:  --------------------------------------------------------------------------------
+DEBUG util.py:450:  Total                                              772 kB/s | 1.0 MB  00:01     
+DEBUG util.py:450:  Running transaction check
+DEBUG util.py:450:  Running transaction test
+DEBUG util.py:450:  Transaction test succeeded
+DEBUG util.py:450:  Running transaction
+DEBUG util.py:450:    Installing : 3:perl-version-0.99.07-2.el7.x86_64                         1/29 
+DEBUG util.py:450:    Installing : perl-Data-Dumper-2.145-3.el7.x86_64                         2/29 
+DEBUG util.py:450:    Installing : perl-Module-Metadata-1.000018-2.el7.noarch                  3/29 
+DEBUG util.py:450:    Installing : python-2.7.5-48.el7.x86_64                                  4/29 
+DEBUG util.py:450:    Installing : perl-ExtUtils-Manifest-1.61-244.el7.noarch                  5/29 
+DEBUG util.py:450:    Installing : perl-Test-Harness-3.28-3.el7.noarch                         6/29 
+DEBUG util.py:450:    Installing : perl-Perl-OSType-1.003-3.el7.noarch                         7/29 
+DEBUG util.py:450:    Installing : perl-CPAN-Meta-YAML-0.008-14.el7.noarch                     8/29 
+DEBUG util.py:450:    Installing : pyparsing-1.5.6-9.el7.noarch                                9/29 
+DEBUG util.py:450:    Installing : systemtap-sdt-devel-3.0-7.el7.x86_64                       10/29 
+DEBUG util.py:450:    Installing : perl-JSON-PP-2.27202-2.el7.noarch                          11/29 
+DEBUG util.py:450:    Installing : 1:perl-Parse-CPAN-Meta-1.4404-5.el7.noarch                 12/29 
+DEBUG util.py:450:    Installing : 1:perl-Module-CoreList-2.76.02-291.el7.noarch              13/29 
+DEBUG util.py:450:    Installing : perl-CPAN-Meta-Requirements-2.122-7.el7.noarch             14/29 
+DEBUG util.py:450:    Installing : perl-CPAN-Meta-2.120921-5.el7.noarch                       15/29 
+DEBUG util.py:450:    Installing : 1:perl-Module-Load-0.24-3.el7.noarch                       16/29 
+DEBUG util.py:450:    Installing : libdb-devel-5.3.21-19.el7.x86_64                           17/29 
+DEBUG util.py:450:    Installing : gdbm-devel-1.10-8.el7.x86_64                               18/29 
+DEBUG util.py:450:    Installing : perl-ExtUtils-MakeMaker-6.68-3.el7.noarch                  19/29 
+DEBUG util.py:450:    Installing : 1:perl-ExtUtils-ParseXS-3.18-2.el7.noarch                  20/29 
+DEBUG util.py:450:    Installing : 4:perl-devel-5.16.3-291.el7.x86_64                         21/29 
+DEBUG util.py:450:    Installing : perl-ExtUtils-Install-1.58-291.el7.noarch                  22/29 
+DEBUG util.py:450:    Installing : perl-Locale-Maketext-1.23-3.el7.noarch                     23/29 
+DEBUG util.py:450:    Installing : 1:perl-Locale-Maketext-Simple-0.21-291.el7.noarch          24/29 
+DEBUG util.py:450:    Installing : 1:perl-Params-Check-0.38-2.el7.noarch                      25/29 
+DEBUG util.py:450:    Installing : perl-Module-Load-Conditional-0.54-3.el7.noarch             26/29 
+DEBUG util.py:450:    Installing : 1:perl-IPC-Cmd-0.80-4.el7.noarch                           27/29 
+DEBUG util.py:450:    Installing : 1:perl-ExtUtils-CBuilder-0.28.2.6-291.el7.noarch           28/29 
+DEBUG util.py:450:    Installing : 2:perl-Module-Build-0.40.05-2.el7.noarch                   29/29 
+DEBUG util.py:450:    Verifying  : 1:perl-Params-Check-0.38-2.el7.noarch                       1/29 
+DEBUG util.py:450:    Verifying  : 3:perl-version-0.99.07-2.el7.x86_64                         2/29 
+DEBUG util.py:450:    Verifying  : perl-ExtUtils-Install-1.58-291.el7.noarch                   3/29 
+DEBUG util.py:450:    Verifying  : systemtap-sdt-devel-3.0-7.el7.x86_64                        4/29 
+DEBUG util.py:450:    Verifying  : perl-CPAN-Meta-2.120921-5.el7.noarch                        5/29 
+DEBUG util.py:450:    Verifying  : pyparsing-1.5.6-9.el7.noarch                                6/29 
+DEBUG util.py:450:    Verifying  : perl-Locale-Maketext-1.23-3.el7.noarch                      7/29 
+DEBUG util.py:450:    Verifying  : 2:perl-Module-Build-0.40.05-2.el7.noarch                    8/29 
+DEBUG util.py:450:    Verifying  : gdbm-devel-1.10-8.el7.x86_64                                9/29 
+DEBUG util.py:450:    Verifying  : perl-CPAN-Meta-YAML-0.008-14.el7.noarch                    10/29 
+DEBUG util.py:450:    Verifying  : perl-ExtUtils-MakeMaker-6.68-3.el7.noarch                  11/29 
+DEBUG util.py:450:    Verifying  : 1:perl-Module-CoreList-2.76.02-291.el7.noarch              12/29 
+DEBUG util.py:450:    Verifying  : perl-Perl-OSType-1.003-3.el7.noarch                        13/29 
+DEBUG util.py:450:    Verifying  : perl-Module-Load-Conditional-0.54-3.el7.noarch             14/29 
+DEBUG util.py:450:    Verifying  : 1:perl-IPC-Cmd-0.80-4.el7.noarch                           15/29 
+DEBUG util.py:450:    Verifying  : perl-Test-Harness-3.28-3.el7.noarch                        16/29 
+DEBUG util.py:450:    Verifying  : 1:perl-Parse-CPAN-Meta-1.4404-5.el7.noarch                 17/29 
+DEBUG util.py:450:    Verifying  : libdb-devel-5.3.21-19.el7.x86_64                           18/29 
+DEBUG util.py:450:    Verifying  : perl-Data-Dumper-2.145-3.el7.x86_64                        19/29 
+DEBUG util.py:450:    Verifying  : 1:perl-ExtUtils-ParseXS-3.18-2.el7.noarch                  20/29 
+DEBUG util.py:450:    Verifying  : perl-JSON-PP-2.27202-2.el7.noarch                          21/29 
+DEBUG util.py:450:    Verifying  : 1:perl-Locale-Maketext-Simple-0.21-291.el7.noarch          22/29 
+DEBUG util.py:450:    Verifying  : 4:perl-devel-5.16.3-291.el7.x86_64                         23/29 
+DEBUG util.py:450:    Verifying  : 1:perl-ExtUtils-CBuilder-0.28.2.6-291.el7.noarch           24/29 
+DEBUG util.py:450:    Verifying  : perl-ExtUtils-Manifest-1.61-244.el7.noarch                 25/29 
+DEBUG util.py:450:    Verifying  : 1:perl-Module-Load-0.24-3.el7.noarch                       26/29 
+DEBUG util.py:450:    Verifying  : perl-CPAN-Meta-Requirements-2.122-7.el7.noarch             27/29 
+DEBUG util.py:450:    Verifying  : python-2.7.5-48.el7.x86_64                                 28/29 
+DEBUG util.py:450:    Verifying  : perl-Module-Metadata-1.000018-2.el7.noarch                 29/29 
+DEBUG util.py:450:  Installed:
+DEBUG util.py:450:    perl-Module-Build.noarch 2:0.40.05-2.el7                                      
+DEBUG util.py:450:  Dependency Installed:
+DEBUG util.py:450:    gdbm-devel.x86_64 0:1.10-8.el7                                                
+DEBUG util.py:450:    libdb-devel.x86_64 0:5.3.21-19.el7                                            
+DEBUG util.py:450:    perl-CPAN-Meta.noarch 0:2.120921-5.el7                                        
+DEBUG util.py:450:    perl-CPAN-Meta-Requirements.noarch 0:2.122-7.el7                              
+DEBUG util.py:450:    perl-CPAN-Meta-YAML.noarch 0:0.008-14.el7                                     
+DEBUG util.py:450:    perl-Data-Dumper.x86_64 0:2.145-3.el7                                         
+DEBUG util.py:450:    perl-ExtUtils-CBuilder.noarch 1:0.28.2.6-291.el7                              
+DEBUG util.py:450:    perl-ExtUtils-Install.noarch 0:1.58-291.el7                                   
+DEBUG util.py:450:    perl-ExtUtils-MakeMaker.noarch 0:6.68-3.el7                                   
+DEBUG util.py:450:    perl-ExtUtils-Manifest.noarch 0:1.61-244.el7                                  
+DEBUG util.py:450:    perl-ExtUtils-ParseXS.noarch 1:3.18-2.el7                                     
+DEBUG util.py:450:    perl-IPC-Cmd.noarch 1:0.80-4.el7                                              
+DEBUG util.py:450:    perl-JSON-PP.noarch 0:2.27202-2.el7                                           
+DEBUG util.py:450:    perl-Locale-Maketext.noarch 0:1.23-3.el7                                      
+DEBUG util.py:450:    perl-Locale-Maketext-Simple.noarch 1:0.21-291.el7                             
+DEBUG util.py:450:    perl-Module-CoreList.noarch 1:2.76.02-291.el7                                 
+DEBUG util.py:450:    perl-Module-Load.noarch 1:0.24-3.el7                                          
+DEBUG util.py:450:    perl-Module-Load-Conditional.noarch 0:0.54-3.el7                              
+DEBUG util.py:450:    perl-Module-Metadata.noarch 0:1.000018-2.el7                                  
+DEBUG util.py:450:    perl-Params-Check.noarch 1:0.38-2.el7                                         
+DEBUG util.py:450:    perl-Parse-CPAN-Meta.noarch 1:1.4404-5.el7                                    
+DEBUG util.py:450:    perl-Perl-OSType.noarch 0:1.003-3.el7                                         
+DEBUG util.py:450:    perl-Test-Harness.noarch 0:3.28-3.el7                                         
+DEBUG util.py:450:    perl-devel.x86_64 4:5.16.3-291.el7                                            
+DEBUG util.py:450:    perl-version.x86_64 3:0.99.07-2.el7                                           
+DEBUG util.py:450:    pyparsing.noarch 0:1.5.6-9.el7                                                
+DEBUG util.py:450:    python.x86_64 0:2.7.5-48.el7                                                  
+DEBUG util.py:450:    systemtap-sdt-devel.x86_64 0:3.0-7.el7                                        
+DEBUG util.py:450:  Complete!
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: rpm -qa --root '/var/lib/mock/epel-7-x86_64/root' --qf '%{nevra} %{buildtime} %{size} %{pkgid} installed\n' > /home/fife/rt4repobuilder/perl-Data-Page-Pageset-srpm/epel-7-x86_64/installed_pkgs.log with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/bash', 'HOSTNAME': 'mock', 'PROMPT_COMMAND': 'printf "\\033]0;<mock-chroot>\\007"', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'HOME': '/builddir', 'PS1': '<mock-chroot> \\s-\\v\\$ '} and shell True
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:197:  kill orphans
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['/bin/umount', '-n', '/var/lib/mock/epel-7-x86_64/root/var/cache/yum/'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/sh', 'HOSTNAME': 'mock', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin'} and shell False
+DEBUG util.py:588:  Child return code was: 0
+DEBUG util.py:606:  child environment: None
+DEBUG util.py:533:  Executing command: ['btrfs', 'subv', 'list', '/var/lib/mock'] with env {'LANG': 'C', 'TERM': 'vt100', 'SHELL': '/bin/sh', 'HOSTNAME': 'mock', 'HOME': '/builddir', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin'} and shell False
+DEBUG util.py:588:  Child return code was: 1
+DEBUG util.py:1275:  Please ignore the error above above about btrfs.

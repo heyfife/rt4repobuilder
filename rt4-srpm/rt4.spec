@@ -60,7 +60,7 @@ Source3:	rt4.conf.in
 Source4:	README.fedora
 Source5:	rt4.logrotate.in
 
-Patch0:		rt-4.0.12-config.diff
+#Patch0:		rt-4.0.12-config.diff
 
 BuildArch:	noarch
 
@@ -78,8 +78,6 @@ BuildRequires: redhat-rpm-config
 %endif
 
 # This list is alpha sorted
-BuildRequires: perl(Apache::DBI)
-BuildRequires: perl(Apache::Session) >= 1.53
 BuildRequires: perl(Cache::Simple::TimedExpiry)
 BuildRequires: perl(Calendar::Simple)
 BuildRequires: perl(CGI::Cookie) >= 1.20
@@ -367,7 +365,7 @@ rm -rf autom4te.cache config.log config.status
 # Upstream tarball contains configure-time generated files
 find bin sbin etc -name '*.in' | while read a; do d=$(echo "$a" | sed 's,\.in$,,'); rm "$d"; done
 
-%patch0 -p1
+#%patch0 -p1
 
 # Fix DESTDIR support
 cp Makefile.in Makefile.in.orig

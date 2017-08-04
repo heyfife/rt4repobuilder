@@ -78,6 +78,7 @@ BuildRequires: redhat-rpm-config
 %endif
 
 # This list is alpha sorted
+BuildRequires: perl(Business::Hours)
 BuildRequires: perl(Cache::Simple::TimedExpiry)
 BuildRequires: perl(Calendar::Simple)
 BuildRequires: perl(CGI::Cookie) >= 1.20
@@ -87,9 +88,18 @@ BuildRequires: perl(Class::Accessor) >= 0.34
 BuildRequires: perl(Class::ReturnValue) >= 0.40
 BuildRequires: perl(Convert::Color)
 BuildRequires: perl(CPAN)
+BuildRequires: perl(Crypt::SSLeay)
+BuildRequires: perl(Crypt::Eksblowfish)
+BuildRequires: perl(Crypt::X509)
 BuildRequires: perl(CSS::Squish) >= 0.06
+BuildRequires: perl(CSS::Minifier::XS) >= 0.06
+BuildRequires: perl(Data::GUID)
 BuildRequires: perl(Data::ICal)
+BuildRequires: perl(Data::Page::Pageset)
+BuildRequires: perl(Date::Extract)
 BuildRequires: perl(Date::Format)
+BuildRequires: perl(Date::Manip)
+BuildRequires: perl(DateTime::Format::Natural) >= 0.67
 BuildRequires: perl(DBD::mysql) >= 2.1018
 BuildRequires: perl(DBI) >= 1.37
 BuildRequires: perl(DBIx::SearchBuilder) >= 1.59
@@ -98,16 +108,18 @@ BuildRequires: perl(Devel::StackTrace) >= 1.19
 BuildRequires: perl(Digest::base)
 BuildRequires: perl(Digest::MD5) >= 2.27
 %{?with_devel_mode:BuildRequires: perl(Email::Abstract)}
-BuildRequires: perl(Email::Address)
-BuildRequires: perl(Encode) >= 2.39
+BuildRequires: perl(Email::Address) >= 1.908
+BuildRequires: perl(Email::Address::List) > 0.02
+BuildRequires: perl(Encode) >= 2.64
 BuildRequires: perl(Errno)
 %{?with_devel_mode:BuildRequires: perl(File::Find)}
 BuildRequires: perl(File::Glob)
 BuildRequires: perl(File::ShareDir)
 BuildRequires: perl(File::Spec) >= 0.8
 BuildRequires: perl(File::Temp) >= 0.19
+BuildRequires: perl(File::Which) >= 0.19
 %{?with_gd:BuildRequires: perl(GD)}
-%{?with_gd:BuildRequires: perl(GD::Graph)}
+%{?with_gd:BuildRequires: perl(GD::Graph) >= 1.47}
 %{?with_gd:BuildRequires: perl(GD::Text)}
 %{?with_gpg:BuildRequires: perl(GnuPG::Interface)}
 %{?with_graphviz:BuildRequires: perl(GraphViz)}
@@ -115,6 +127,8 @@ BuildRequires: perl(Getopt::Long) >= 2.24
 BuildRequires: perl(HTML::Entities)
 %{?with_devel_mode:BuildRequires: perl(HTML::Form)}
 BuildRequires: perl(HTML::FormatText)
+BuildRequires: perl(HTML::FormatText::WithLinks) >= 0.14
+BuildRequires: perl(HTML::FormatText::WithLinks::AndTables) >= 0.06
 BuildRequires: perl(HTML::Mason) >= 1.43
 #BuildRequires: perl(HTML::Mason::PSGIHandler) >= 1.43
 BuildRequires: perl(HTML::Mason::PSGIHandler) >= 0.52
@@ -129,36 +143,47 @@ BuildRequires: perl(HTTP::Server::Simple::Mason) >= 0.09
 #%{?with_devel_mode:BuildRequires: perl(IPC::Run3)}
 BuildRequires: perl(IPC::Run3)
 %{?with_graphviz:BuildRequires: perl(IPC::Run::SafeHandles)}
+BuildRequires: perl(Javascript::Minifier::XS)
 BuildRequires: perl(JSON)
 BuildRequires: perl(JSON::PP)
 BuildRequires: perl(Locale::Maketext) >= 1.06
-BuildRequires: perl(Locale::Maketext::Fuzzy)
+BuildRequires: perl(Locale::Maketext::Fuzzy) >= 0.11
 BuildRequires: perl(Locale::Maketext::Lexicon) >= 0.32
 %{?with_devel_mode:BuildRequires: perl(Locale::PO)}
 BuildRequires: perl(Log::Dispatch) >= 2.0
 %{?with_devel_mode:BuildRequires: perl(Log::Dispatch::Perl)}
 BuildRequires: perl(LWP)
 BuildRequires: perl(LWP::UserAgent)
+BuildRequires: perl(LWP::Protocol::https)
 BuildRequires: perl(Mail::Mailer) >= 1.57
 BuildRequires: perl(MIME::Entity) >= 5.425
 BuildRequires: perl(MIME::Types)
 %{?with_devel_mode:BuildRequires: perl(Module::Refresh) >= 0.03}
 BuildRequires: perl(Module::Versions::Report) >= 1.05
+BuildRequires: perl(Mozilla::CA)
+BuildRequires: perl(Mojo::DOM)
 BuildRequires: perl(Net::CIDR)
+BuildRequires: perl(Net::IP)
 BuildRequires: perl(Net::Server)
 BuildRequires: perl(Net::Server::PreFork)
 BuildRequires: perl(Net::SMTP)
+BuildRequires: perl(Net::SSL)
 %{?with_gpg:BuildRequires: perl(PerlIO::eol)}
 BuildRequires: perl(Plack)
 BuildRequires: perl(Plack::Handler::Starlet)
 %{?with_devel_mode:BuildRequires: perl(Plack::Middleware::Test::StashWarnings) >= 0.08}
+BuildRequires: perl(Pod::Select)
 BuildRequires: perl(Pod::Usage)
 BuildRequires: perl(Regexp::Common)
 BuildRequires: perl(Regexp::Common::net::CIDR)
 BuildRequires: perl(Regexp::IPv6)
+BuildRequires: perl(Role::Basic) >= 0.12
+BuildRequires: perl(Set::Tiny)
 BuildRequires: perl(Scalar::Util)
+BuildRequires: perl(Scope::Upper)
 BuildRequires: perl(Storable) >= 2.08
 %{?with_devel_mode:BuildRequires: perl(String::ShellQuote)}
+BuildRequires: perl(Symbol::Global::Name)
 BuildRequires: perl(Term::ReadKey)
 BuildRequires: perl(Term::ReadLine)
 %{?with_devel_mode:BuildRequires: perl(Test::Builder) >= 0.77}
@@ -174,7 +199,7 @@ BuildRequires: perl(Term::ReadLine)
 %{?with_devel_mode:BuildRequires: perl(Test::WWW::Mechanize::PSGI)}
 BuildRequires: perl(Text::ParseWords)
 BuildRequires: perl(Text::Password::Pronounceable)
-BuildRequires: perl(Text::Quoted) >= 2.02
+BuildRequires: perl(Text::Quoted) >= 2.07
 BuildRequires: perl(Text::Template)
 BuildRequires: perl(Text::WikiFormat) >= 0.76
 BuildRequires: perl(Text::Wrapper)
@@ -194,9 +219,9 @@ BuildRequires: perl(XML::RSS) >= 1.05
 %{?with_runtests:BuildRequires: perl(Test::WWW::Mechanize)}
 %{?with_runtests:BuildRequires: perl(Test::Expect)}
 %{?with_runtests:BuildRequires: perl(Test::Harness)}
+%{?with_runtests:BuildRequires: perl(Test::Pod)}
 
 BuildRequires:	/usr/bin/pod2man
-BuildRequires:	/usr/sbin/apachectl
 
 # the original sources carry bundled versions of these ...
 Requires:  /usr/share/fonts/google-droid/DroidSansFallback.ttf
@@ -210,23 +235,46 @@ Requires:  perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
 Requires(postun): %{__rm}
 
-# rpm doesn't catch these:
-Requires: perl(Apache::Session)
+# Required libraries:
+Requires: perl(Business::Hours)
 Requires: perl(Calendar::Simple)
-Requires: perl(DBD::mysql)
+Requires: perl(CSS::Minifier::XS)
+Requires: perl(Data::GUID)
+Requires: perl(Date::Extract)
+Requires: perl(DBD::Pg)
+Requires: perl(Crypt::SSLeay)
+Requires: perl(Crypt::Eksblowfish)
+Requires: perl(Crypt::X509)
 Requires: perl(Data::ICal)
 Requires: perl(Data::ICal::Entry::Event)
-Requires: perl(Email::Address)
+Requires: perl(Data::Page::Pageset)
+Requires: perl(Date::Manip)
+Requires: perl(DateTime::Format::Natural)
+Requires: perl(Email::Address) > 1.908
+Requires: perl(Email::Address::List) > 0.02
+Requires: perl(Encode)
 Requires: perl(File::Find)
+Requires: perl(File::Which)
 %{?with_gd:Requires: perl(GD::Text)}
-%{?with_gd:Requires: perl(GD::Graph::bars)}
-%{?with_gd:Requires: perl(GD::Graph::pie)}
+%{?with_gd:Requires: perl(GDGraph)}
 %{?with_gpg: Requires: perl(GnuPG::Interface)}
+Requires: perl(HTML::FormatText::WithLinks) >= 0.14
+Requires: perl(HTML::FormatText::WithLinks::AndTables) >= 0.06
 Requires: perl(I18N::LangTags::List)
-Requires: perl(Locale::Maketext::Fuzzy)
+Requires: perl(Javascript::Minifier::XS)
+Requires: perl(Locale::Maketext::Fuzzy) >= 0.11
 Requires: perl(LWP::MediaTypes)
-Requires: perl(mod_perl2)
+Requires: perl(LWP::Protocol::https)
+Requires: perl(Pod::Select)
+Requires: perl(Net::SSL)
+Requires: perl(Net::IP)
 Requires: perl(Module::Versions::Report)
+Requires: perl(Mozilla::CA)
+Requires: perl(Mojo::DOM)
+Requires: perl(Role::Basic) >= 0.12
+Requires: perl(Scope::Upper)
+Requires: perl(Set::Tiny)
+Requires: perl(Symbol::Global::Name)
 Requires: perl(Text::Quoted)
 Requires: perl(Text::WikiFormat)
 #Requires: perl(URI) >= 1.99
@@ -427,7 +475,7 @@ EOF
 sed -i \
  -e "s,^#!/usr/bin/env perl,#!%{__perl}," \
  -e "s,^#!/opt/perl/bin/perl,#!%{__perl}," \
-   t/*/*.t sbin/rt-message-catalog t/shredder/utils.pl
+   t/*/*.t
 
 # Make scripts executable
 find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;

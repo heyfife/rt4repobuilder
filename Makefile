@@ -14,7 +14,6 @@ MFLAGS="--debug=a"
 
 # These build with normal mock "epel-*" setups
 EPELPKGS+=google-droid-sans-fonts-srpm
-EPELPKGS+=perl-Business-Hours-srpm
 EPELPKGS+=perl-CGI-PSGI-srpm
 EPELPKGS+=perl-Cache-Simple-TimedExpiry-srpm
 EPELPKGS+=perl-Calendar-Simple-srpm
@@ -32,6 +31,7 @@ EPELPKGS+=perl-Log-Dispatch-Perl-srpm
 EPELPKGS+=perl-Module-Util-srpm
 EPELPKGS+=perl-Proc-Wait3-srpm
 EPELPKGS+=perl-Regexp-Common-Net-CIDR-srpm
+EPELPKGS+=perl-Set-IntSpan-srpm
 EPELPKGS+=perl-Test-HTTP-Server-Simple-srpm
 EPELPKGS+=perl-Text-Password-Pronounceable-srpm
 EPELPKGS+=perl-Text-Quoted-srpm
@@ -43,8 +43,8 @@ EPELPKGS+=perl-capitalization-srpm
 # Require customized rt4repo local repository for dependencies
 # Needed by various packages
 
-# perl-Business-Hours
-RT4PKGS+=perl-Set-IntSpan-srpm
+# requires perl-Set-IntSpan
+RT4PKGS+=perl-Business-Hours-srpm
 
 # Now requires perl-Cache-Simple-TimedExpiry-srpm
 RT4PKGS+=perl-DBIx-SearchBuilder-srpm

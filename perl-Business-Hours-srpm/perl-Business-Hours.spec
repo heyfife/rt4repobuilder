@@ -11,6 +11,7 @@ BuildArch:      noarch
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Set::IntSpan) >= 1.12
 BuildRequires:  perl(Time::Local)
+BuildRequires:  perl(Test::Simple)
 Requires:       perl(Set::IntSpan) >= 1.12
 Requires:       perl(Time::Local)
 Requires:       perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))

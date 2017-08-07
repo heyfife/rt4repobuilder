@@ -10,6 +10,7 @@ BuildArch:      noarch
 
 BuildRequires:  perl(Class::Accessor::Lite) >= 0.04
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(List::MoreUtils)
 BuildRequires:  perl(Proc::Wait3) >= 0.03
 BuildRequires:  perl(Scope::Guard)

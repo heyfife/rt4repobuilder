@@ -13,6 +13,7 @@ BuildRequires:  perl(strict)
 BuildRequires:  perl(warnings)
 BuildRequires:  perl(Carp)
 BuildRequires:  perl(ExtUtils::MakeMaker) >= 6.36
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(HTML::Entities)
 BuildRequires:  perl(HTML::Parser)
 BuildRequires:  perl(HTML::Tagset)

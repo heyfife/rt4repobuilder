@@ -11,6 +11,7 @@ BuildArch:      noarch
 BuildRequires:  perl(Carp)
 BuildRequires:  perl(Data::UUID) >= 1.148
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(File::Spec)
 BuildRequires:  perl(Sub::Exporter) >= 0.90
 BuildRequires:  perl(Sub::Install) >= 0.03

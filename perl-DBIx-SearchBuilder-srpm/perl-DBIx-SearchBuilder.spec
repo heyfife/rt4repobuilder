@@ -28,6 +28,7 @@ BuildRequires:	perl(Test::More) >= 0.52
 BuildRequires:	perl(Class::Accessor)
 BuildRequires:	perl(Encode)
 BuildRequires:	perl(ExtUtils::MakeMaker)
+BuildRequires:	perl(ExtUtils::Manifest)
 
 # Improved tests:
 BuildRequires:	perl(Test::Pod)

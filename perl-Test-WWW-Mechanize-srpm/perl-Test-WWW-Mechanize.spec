@@ -11,6 +11,7 @@ BuildArch:      noarch
 BuildRequires:  perl >= 0:5.008
 BuildRequires:  perl(Carp::Assert::More)
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(HTML::TreeBuilder)
 BuildRequires:  perl(HTTP::Server::Simple) >= 0.42
 BuildRequires:  perl(HTTP::Server::Simple::CGI)

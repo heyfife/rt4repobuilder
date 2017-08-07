@@ -11,6 +11,7 @@ BuildArch:      noarch
 BuildRequires:  perl >= 0:5.006
 BuildRequires:  perl(Data::Dumper)
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(File::Spec) >= 0.8
 BuildRequires:  perl(Pod::Man)
 Requires:       perl(File::Spec) >= 0.8
@@ -50,6 +51,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes META.json NOTES PATCHING README README.packaging TODO
 %{perl_vendorlib}/*
 %{_mandir}/man3/*
+%exclude %{_mandir}/man3
+%exclude %{perl_vendorlib}/CPAN
 
 %changelog
 * Mon Aug 07 2017 Ryan Fife <ryan@fife-v.com> 6.98-1

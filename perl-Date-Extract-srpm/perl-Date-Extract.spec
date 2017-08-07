@@ -13,6 +13,7 @@ BuildRequires:  perl(CPAN)
 BuildRequires:  perl(Class::Data::Inheritable)
 BuildRequires:  perl(DateTime::Format::Natural) >= 0.60
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(List::Util)
 BuildRequires:  perl(parent)
 BuildRequires:  perl(Test::MockTime)

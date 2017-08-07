@@ -9,6 +9,7 @@ Source0:        http://www.cpan.org/authors/id/R/RU/RUZ/HTML-Quoted-%{version}.t
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(HTML::Parser) >= 3.0
 BuildRequires:  perl(Test::Harness)
 BuildRequires:  perl(Test::More)

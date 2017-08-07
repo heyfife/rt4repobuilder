@@ -11,6 +11,7 @@ BuildArch:      noarch
 # start_server comes ftom perl_Server_Starter_start_Server package
 BuildRequires:  /usr/bin/start_server
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(LWP::UserAgent) >= 5.8
 BuildRequires:  perl(Net::EmptyPort)
 BuildRequires:  perl(Parallel::Prefork) >= 0.13

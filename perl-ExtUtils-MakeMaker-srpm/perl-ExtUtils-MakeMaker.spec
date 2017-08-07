@@ -51,8 +51,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes META.json NOTES PATCHING README README.packaging TODO
 %{perl_vendorlib}/*
 %{_mandir}/man3/*
-%exclude %{_mandir}/man3
-%exclude %{perl_vendorlib}/CPAN
+%{_bindir}/instmodsh
+%{_mandir}/man1/instmodsh.1.gz
+%exclude /usr/share/perl5/vendor_perl/CPAN/
+%exclude %{_mandir}/man3/CPAN*
+%exclude %{_mandir}/man3/version.3pm.gz
+%exclude %{_mandir}/man3/version::Internals.3pm.gz
 
 %changelog
 * Mon Aug 07 2017 Ryan Fife <ryan@fife-v.com> 6.98-1

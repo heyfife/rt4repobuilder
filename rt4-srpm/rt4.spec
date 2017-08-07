@@ -143,7 +143,7 @@ BuildRequires: perl(HTTP::Server::Simple::Mason) >= 0.09
 #%{?with_devel_mode:BuildRequires: perl(IPC::Run3)}
 BuildRequires: perl(IPC::Run3)
 %{?with_graphviz:BuildRequires: perl(IPC::Run::SafeHandles)}
-BuildRequires: perl(Javascript::Minifier::XS)
+BuildRequires: perl(JavaScript::Minifier::XS)
 BuildRequires: perl(JSON)
 BuildRequires: perl(JSON::PP)
 BuildRequires: perl(Locale::Maketext) >= 1.06

@@ -10,6 +10,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl >= 1:5.8.1
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(HTTP::Request::Common)
 BuildRequires:  perl(Plack)
 BuildRequires:  perl(Plack::Request)

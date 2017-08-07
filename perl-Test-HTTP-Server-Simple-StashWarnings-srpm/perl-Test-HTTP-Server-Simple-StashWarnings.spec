@@ -10,6 +10,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl >= 1:5.8.0
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(HTTP::Server::Simple) >= 0.34
 BuildRequires:  perl(Test::HTTP::Server::Simple)
 BuildRequires:  perl(WWW::Mechanize)

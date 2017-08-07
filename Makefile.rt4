@@ -47,14 +47,14 @@ $(MOCKS):: verifyspec FORCE
 	else \
 		echo "	Building $(SPEC) SRPM in $@"; \
 		rm -rf $@; \
-		/usr/bin/mock -q -r $@ --sources=$(PWD) \
+		/usr/bin/mock -r $@ --sources=$(PWD) \
 		    --resultdir=$(PWD)/$@ \
 		    --buildsrpm --spec=$(SPEC); \
 		echo "Storing " $@/*.src.rpm "as $@.src.rpm"; \
 		/bin/mv $@/*.src.rpm $@.src.rpm; \
 		echo "Building $@.src.rpm in $@"; \
 		rm -rf $@; \
-		/usr/bin/mock -q -r $@ \
+		/usr/bin/mock -r $@ \
 		     --resultdir=$(PWD)/$@ \
 		     $@.src.rpm; \
 	fi

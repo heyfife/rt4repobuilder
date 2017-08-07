@@ -14,6 +14,7 @@ MFLAGS="--debug=a"
 
 # These build with normal mock "epel-*" setups
 EPELPKGS+=google-droid-sans-fonts-srpm
+EPELPKGS+=perl-Apache-Session-srpm
 EPELPKGS+=perl-CGI-PSGI-srpm
 EPELPKGS+=perl-CSS-Minifier-srpm
 EPELPKGS+=perl-Cache-Simple-TimedExpiry-srpm
@@ -21,6 +22,7 @@ EPELPKGS+=perl-Calendar-Simple-srpm
 EPELPKGS+=perl-Capture-Tiny-srpm
 EPELPKGS+=perl-Carp-Assert-More-srpm
 EPELPKGS+=perl-Class-Container-srpm
+EPELPKGS+=perl-CSS-Minifier-XS-srpm
 EPELPKGS+=perl-Data-Page-srpm
 EPELPKGS+=perl-DBIx-DBschema-srpm
 EPELPKGS+=perl-Expect-Simple-srpm
@@ -29,15 +31,18 @@ EPELPKGS+=perl-Email-Address-List-srpm
 EPELPKGS+=perl-Encode-srpm
 EPELPKGS+=perl-ExtUtils-Installed-srpm
 EPELPKGS+=perl-ExtUtils-MakeMaker-srpm
+EPELPKGS+=perl-EV-srpm
 EPELPKGS+=perl-GnuPG-Interface-srpm
 EPELPKGS+=perl-HTML-FormatText-WithLinks-AndTables-srpm
 EPELPKGS+=perl-JavaScript-Minifier-XS-srpm
+EPELPKGS+=perl-IO-Socket-IP-srpm
 EPELPKGS+=perl-List-UtilsBy-srpm
 EPELPKGS+=perl-Locale-Maketext-Fuzzy-srpm
 EPELPKGS+=perl-Locale-Maketext-Lexicon-srpm
 EPELPKGS+=perl-Log-Any-srpm
 EPELPKGS+=perl-Log-Dispatch-Perl-srpm
 EPELPKGS+=perl-Module-Util-srpm
+#EPELPKGS+=perl-Mojolicious-srpm
 EPELPKGS+=perl-Proc-Wait3-srpm
 EPELPKGS+=perl-Regexp-Common-Net-CIDR-srpm
 EPELPKGS+=perl-Role-Basic-srpm
@@ -99,6 +104,11 @@ RT4PKGS+=perl-Data-Page-Pageset-srpm
 RT4PKGS+=perl-Data-GUID-srpm
 RT4PKGS+=perl-Crypt-X509-srpm
 
+# Dependency for Mojo-DOM
+#
+RT4PKGS+=perl-Mojolicious-srpm
+#RT4PKGS+=perl-IO-Socket-IP-srpm
+
 # Binary target
 RT4PKGS+=rt4-srpm
 
@@ -157,6 +167,7 @@ perl-HTML-Mason-PSGIHandler-srpm:: perl-HTML-Mason-srpm
 perl-HTML-Mason-PSGIHandler-srpm:: perl-Plack-srpm
 perl-HTML-Mason-PSGIHandler-srpm:: perl-Test-Log-Dispatch-srpm
 perl-HTML-Mason-srpm:: perl-Class-Container-srpm
+perl-Mojolicious-srpm:: perl-IO-Socket-IP-srpm
 perl-Log-Any-Aapter-srpm:: perl-Log-Any-srpm
 perl-Log-Any-Adapter-Dispatch-srpm:: perl-Log-Any-Adapter-srpm
 perl-Module-Mask-srpm:: perl-Module-Util-srpm
@@ -184,9 +195,11 @@ rt4:: perl-HTML-Mason-srpm
 rt4:: perl-HTML-Quoted-srpm
 rt4:: perl-HTML-RewriteAttributes-srpm
 rt4:: perl-HTTP-Server-Simple-Mason-srpm
+rt4:: perl-IO-Socket-IP-srpm
 rt4:: perl-Locale-Maketext-Fuzzy-srpm
 rt4:: perl-Locale-Maketext-Lexicon-srpm
 rt4:: perl-Log-Dispatch-Perl-srpm
+rt4:: perl-Mojolicious-srpm
 rt4:: perl-Plack-Middleware-Test-StashWarnings-srpm
 rt4:: perl-Test-Expert-srpm
 rt4:: perl-Test-HTTP-Server-Simple-srpm

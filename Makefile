@@ -27,7 +27,6 @@ EPELPKGS+=perl-Email-Address-srpm
 EPELPKGS+=perl-Email-Address-List-srpm
 EPELPKGS+=perl-Encode-srpm
 EPELPKGS+=perl-ExtUtils-Installed-srpm
-EPELPKGS+=perl-GD-Graph-srpm
 EPELPKGS+=perl-GnuPG-Interface-srpm
 EPELPKGS+=perl-HTML-FormatText-WithLinks-AndTables-srpm
 EPELPKGS+=perl-JavaScript-Minifier-XS-srpm
@@ -44,6 +43,7 @@ EPELPKGS+=perl-Scope-Upper-srpm
 EPELPKGS+=perl-Set-IntSpan-srpm
 EPELPKGS+=perl-Set-Tiny-srpm
 EPELPKGS+=perl-Symbol-Global-Name-srpm
+EPELPKGS+=perl-Test-Exception-srpm
 EPELPKGS+=perl-Test-HTTP-Server-Simple-srpm
 EPELPKGS+=perl-Text-Password-Pronounceable-srpm
 EPELPKGS+=perl-Text-Quoted-srpm
@@ -64,6 +64,8 @@ RT4PKGS+=perl-DBIx-SearchBuilder-srpm
 RT4PKGS+=perl-Test-WWW-Mechanize-srpm
 
 RT4PKGS+=perl-Convert-Color-srpm
+
+RT4PKGS+=perl-GD-Graph-srpm
 
 # Dependency for perl-HTML-Mason-PSGIHandler-srpm
 RT4PKGS+=perl-HTML-Mason-srpm

@@ -11,6 +11,7 @@ BuildArch:      noarch
 BuildRequires:  perl >= 1:5.6.0
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Text::Autoformat)
+BuildRequires:  perl(Test::More)
 Requires:       perl(Text::Autoformat)
 Requires:       perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 

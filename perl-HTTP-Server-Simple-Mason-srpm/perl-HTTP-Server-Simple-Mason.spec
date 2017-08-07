@@ -24,6 +24,8 @@ BuildRequires: 	perl(Test::Pod::Coverage) >= 1.04
 # Improved tests (dynamic requirement of HTML::Mason)
 BuildRequires: 	perl(LWP::Simple)
 
+BuildRequires: 	perl(ExtUtils::Manifest)
+
 Requires:	perl(HTTP::Server::Simple::CGI)
 
 %description

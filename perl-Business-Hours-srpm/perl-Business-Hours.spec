@@ -9,6 +9,7 @@ Source0:        http://www.cpan.org/authors/id/R/RU/RUZ/Business-Hours-%{version
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(Set::IntSpan) >= 1.12
 BuildRequires:  perl(Time::Local)
 BuildRequires:  perl(Test::Simple)

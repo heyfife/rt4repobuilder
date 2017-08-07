@@ -45,6 +45,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes META.json README scripts
 %{perl_vendorlib}/*
 %{_mandir}/man3/*
+%{_bindir}/pm_which
+%{_mandir}/man1/pm_which.1.gz
 
 %changelog
 * Fri Aug 04 2017 Ryan Fife <ryan@fife-v.com> 1.09-1

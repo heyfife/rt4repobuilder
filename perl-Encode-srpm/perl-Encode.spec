@@ -50,7 +50,14 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS Changes META.json README
 %{perl_vendorarch}/auto/*
 %{perl_vendorarch}/Encode*
+%{perl_vendorarch}/encoding.pm
 %{_mandir}/man3/*
++%{_mandir}/man1/enc2xs.1.gz
++%{_mandir}/man1/encguess.1.gz
++%{_mandir}/man1/piconv.1.gz
++/usr/bin/enc2xs
++/usr/bin/encguess
++/usr/bin/piconv
 
 %changelog
 * Mon Aug 07 2017 Ryan Fife <ryan@fife-v.com> 2.92-1

@@ -9,7 +9,9 @@ Source0:        http://www.cpan.org/authors/id/R/RU/RUZ/GDGraph-%{version}.tar.g
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl(Capture::Tiny) >= 0.30
+BuildRequires:  perl(Data::Dumper)
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(GD) >= 1.18
 BuildRequires:  perl(GD::Text) >= 0.80
 BuildRequires:  perl(Test::Exception) >= 0.40

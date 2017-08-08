@@ -6,10 +6,10 @@
 
 # Supported rpmbuild options:
 #
-# --with gd/--without gd
+# --with gd/--without gd 
 #	enable/disable gd support
 #	Default: --with (had been default in rt < 3.8.0)
-%bcond_without gd
+%bcond_without gd 
 
 # --with graphviz/--without graphviz
 #	enable/disable graphiz support
@@ -43,7 +43,7 @@
 %global RT4_CACHEDIR		%{_localstatedir}/cache/rt4
 %global RT4_LOCALSTATEDIR	%{_localstatedir}/lib/rt4
 
-# Make sure perl_testdir is defined
+# Make sure perl_testdir is defined 
 %{!?perl_testdir:%global perl_testdir %{_libexecdir}/perl5-tests}
 
 Name:		rt4
@@ -61,6 +61,7 @@ Source4:	README.fedora
 Source5:	rt4.logrotate.in
 
 #Patch0:		rt-4.0.12-config.diff
+#Patch1:		rt-4.0.24-Handle.diff
 
 BuildArch:	noarch
 
@@ -219,7 +220,7 @@ BuildRequires: perl(XML::RSS) >= 1.05
 %{?with_runtests:BuildRequires: perl(Test::WWW::Mechanize)}
 %{?with_runtests:BuildRequires: perl(Test::Expect)}
 %{?with_runtests:BuildRequires: perl(Test::Harness)}
-%{?with_runtests:BuildRequires: perl(Test::Pod)}
+BuildRequires: perl(Test::Pod)
 
 BuildRequires:	/usr/bin/pod2man
 
@@ -230,6 +231,7 @@ Requires:  /usr/share/fonts/google-droid/DroidSans.ttf
 BuildRequires:  google-droid-sans-fonts
 BuildRequires:  /usr/share/fonts/google-droid/DroidSansFallback.ttf
 BuildRequires:  /usr/share/fonts/google-droid/DroidSans.ttf
+BuildRequires: perl(Apache::Session)
 
 Requires:  perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
@@ -369,11 +371,11 @@ Group:		Development/Debug
 Requires:	%{name} = %{version}-%{release}
 Requires:	/usr/bin/prove
 Requires(postun): %{__rm}
-Requires:	perl(DBD::SQLite)
-Requires:	perl(GnuPG::Interface)
-Requires:	perl(PerlIO::eol)
-Requires:	perl(strict)
-Requires:	perl(Test::HTTP::Server::Simple::StashWarnings)
+Requires:	perl(DBD::SQLite)  
+Requires:	perl(GnuPG::Interface)  
+Requires:	perl(PerlIO::eol)  
+Requires:	perl(strict)  
+Requires:	perl(Test::HTTP::Server::Simple::StashWarnings)  
 
 %description tests
 %{summary}
@@ -414,6 +416,7 @@ rm -rf autom4te.cache config.log config.status
 find bin sbin etc -name '*.in' | while read a; do d=$(echo "$a" | sed 's,\.in$,,'); rm "$d"; done
 
 #%patch0 -p1
+#%patch1 -p1
 
 # Fix DESTDIR support
 cp Makefile.in Makefile.in.orig
@@ -422,38 +425,38 @@ sed -i.chgrp Makefile.in -e 's,^	chgrp,	#chgrp,g'
 sed -i.chown Makefile.in -e 's,^	chown,	#chown,g'
 sed -i.chown2 Makefile.in -e 's,; chown.*)),),g'
 sed -i.intallowner Makefile.in -e 's,-o $(BIN_OWNER) -g $(RTGROUP),,g'
-# Do not deploy unneeded fonts, use symlinked local fonts
+## Do not deploy unneeded fonts, use symlinked local fonts
 sed -i.font-install Makefile.in -e 's, font-install , ,g'
-# Do not run 'fixperms' with install programs
+## Do not run 'fixperms' with install programs
 sed -i.fixperms Makefile.in -e 's, fixperms , ,g'
-# Set DESTDIR consistently
+## Set DESTDIR consistently
 echo sed -i.DESTDIR Makefile.in -e 's,$$(DESTDIR)/,$$(DESTDIR),g'
 
-# Propagate rpm directories to config.layout
-mv config.layout config.layout.default
-cat << \EOF > config.layout
-#   Fedora directory layout.
-#   RT has very odd ides of what "libdir" and "manualdir" actually are,
-#   make sure to override those
-<Layout Fedora>
-  bindir:		%{RT4_BINDIR}
-  sysconfdir:		%{_sysconfdir}/rt4
-  libdir:		%{RT4_LIBDIR}
-  manualdir:		%{_defaultdocdir}/%{name}-%{version}
-  lexdir:		%{RT4_LEXDIR}
-  localstatedir:	%{RT4_LOCALSTATEDIR}
-  htmldir:		%{RT4_WWWDIR}
-  fontdir:		%{_datadir}/rt4/fonts
-  logfiledir:		%{RT4_LOGDIR}
-  masonstatedir:	%{RT4_CACHEDIR}/mason_data
-  sessionstatedir:	%{RT4_CACHEDIR}/session_data
-  customdir:		%{_prefix}/local/lib/rt4
-  custometcdir:		%{_prefix}/local/etc/rt4
-  customhtmldir:	${customdir}/html
-  customlexdir:		${customdir}/po
-  customlibdir:		${customdir}/lib
-</Layout>
-EOF
+## Propagate rpm directories to config.layout
+#mv config.layout config.layout.default
+#cat << \EOF > config.layout
+##   Fedora directory layout.
+##   RT has very odd ides of what "libdir" and "manualdir" actually are,
+##   make sure to override those
+#<Layout Fedora>
+#  bindir:		%{RT4_BINDIR}
+#  sysconfdir:		%{_sysconfdir}/rt4
+#  libdir:		%{RT4_LIBDIR}
+#  manualdir:		%{_defaultdocdir}/%{name}-%{version}
+#  lexdir:		%{RT4_LEXDIR}
+#  localstatedir:	%{RT4_LOCALSTATEDIR}
+#  htmldir:		%{RT4_WWWDIR}
+#  fontdir:		%{_datadir}/rt4/fonts
+#  logfiledir:		%{RT4_LOGDIR}
+#  masonstatedir:	%{RT4_CACHEDIR}/mason_data
+#  sessionstatedir:	%{RT4_CACHEDIR}/session_data
+#  customdir:		%{_prefix}/local/lib/rt4
+#  custometcdir:		%{_prefix}/local/etc/rt4
+#  customhtmldir:	${customdir}/html
+#  customlexdir:		${customdir}/po
+#  customlibdir:		${customdir}/lib
+#</Layout>
+#EOF
 
 # Comment out the Makefile trying to change groups/owners
 # Fix DESTDIR support
@@ -472,10 +475,10 @@ Set($WebPath, "/rt4");
 EOF
 
 # Fix up broken shebangs
-sed -i \
- -e "s,^#!/usr/bin/env perl,#!%{__perl}," \
- -e "s,^#!/opt/perl/bin/perl,#!%{__perl}," \
-   t/*/*.t
+#sed -i \
+ #-e "s,^#!/usr/bin/env perl,#!%{__perl}," \
+ #-e "s,^#!/opt/perl/bin/perl,#!%{__perl}," \
+   #t/*/*.t sbin/rt-message-catalog t/shredder/utils.pl
 
 # Make scripts executable
 find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
@@ -485,7 +488,7 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
     --with-web-user=apache \
     --with-web-group=apache \
     --with-db-type=Pg \
-    --enable-layout=Fedora \
+    --enable-layout=RH \
     --with-web-handler=fastcgi \
     --libdir=%{RT4_LIBDIR} \
 %{?with_graphviz:--enable-graphviz}%{!?with_graphviz:--disable-graphviz} \
@@ -531,11 +534,11 @@ mkdir -p ${RPM_BUILD_ROOT}%{_mandir}/man1
 install -m 0644 bin/rt-mailgate.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
 install -m 0644 bin/rt-crontool.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
 
-if [ "%{_bindir}" != "%{RT4_BINDIR}" ]; then
-  mkdir -p ${RPM_BUILD_ROOT}%{_bindir}
-  mv ${RPM_BUILD_ROOT}%{RT4_BINDIR}/rt \
-    ${RPM_BUILD_ROOT}%{_bindir}
-fi
+#if [ "%{_bindir}" != "%{RT4_BINDIR}" ]; then
+  #mkdir -p ${RPM_BUILD_ROOT}%{_bindir}
+  #mv ${RPM_BUILD_ROOT}%{RT4_BINDIR}/rt \
+    #${RPM_BUILD_ROOT}%{_bindir}
+#fi
 
 install -d -m755 ${RPM_BUILD_ROOT}%{_prefix}/local/etc/rt4
 install -d -m755 ${RPM_BUILD_ROOT}%{_prefix}/local/lib/rt4
@@ -573,8 +576,8 @@ ln -s %{RT4_WWWDIR} ${RPM_BUILD_ROOT}%{perl_testdir}/%{name}/share/html
 %endif # with devel_mode
 
 # Fix permissions
-find ${RPM_BUILD_ROOT}%{RT4_WWWDIR} \
-  -type f -exec chmod a-x {} \;
+#find ${RPM_BUILD_ROOT}%{RT4_WWWDIR} \
+  #-type f -exec chmod a-x {} \;
 
 %check
 # The tests don't work in buildroots, they
@@ -684,7 +687,7 @@ fi
 * Mon Dec 30 2013 Nico Kadel-Garcia <nkadelgarcia-consultant@scholastic.com> - 4.0.18-0.4
 - Move Perl modulees correctly to perl_vendorarch, so other software can
   find them.
-- Change '%%datarootdir' to '%%datadir'
+- Change '%%datarootdir' to '%%datadir' 
 
 * Mon Dec  9 2013 Nico Kadel-Garcia <nkadelgarcia-consultant@scholastic.com> - 4.0.18-0.3
 - Filter spurious Provides for perl(Log::Dispatch)
@@ -773,7 +776,7 @@ fi
 - Add BR: perl(Digest::SHA).
 
 * Sat Apr 16 2011 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.10-2
-- Work-around rpm's depgenerator defect:
+- Work-around rpm's depgenerator defect: 
   Filter Requires: perl(DBIx::SearchBuilder::Handle::).
 
 * Sat Apr 16 2011 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.10-1
@@ -803,7 +806,7 @@ fi
 * Fri May 07 2010 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.8-1
 - Upstream update.
 - Add %%{_datadir}/rt4/fonts
-- Use system-wide google-droid-fonts instead of bundled
+- Use system-wide google-droid-fonts instead of bundled 
   Droid fonts.
 - Add rt-3.8.8-Makefile.diff.
 - Remove rt-3.8.6-Makefile.diff.
@@ -821,7 +824,7 @@ fi
 
 * Fri Dec 04 2009 Ralf Corsépius <corsepiu@fedoraproject.org> - 3.8.6-1
 - Upstream update.
-- Remove rt-3.8.4-Makefile.diff, rt-3.8.4-test-dependencies.diff,
+- Remove rt-3.8.4-Makefile.diff, rt-3.8.4-test-dependencies.diff, 
   rt-3.8.4-rh-bz543962.diff.
 - Add rt-3.8.6-Makefile.diff, rt-3.8.6-test-dependencies.diff
 

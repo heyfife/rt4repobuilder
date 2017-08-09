@@ -19,11 +19,7 @@
 # --with devel_mode/--without devel_mode
 #	enable/disable building/installing devel files
 #	Default: --with
-#%if 0%{?fedora}
 %bcond_without devel_mode
-#%else
-#%bcond_with devel_mode
-#%endif
 
 # --with gpg/--without gpg
 #	enable/disable building gpg support
@@ -35,13 +31,12 @@
 #	Default: without (doesn't work in chroots.)
 %bcond_with runtests
 
-%global RT4_BINDIR		%{_sbindir}
+%global RT4_BINDIR		/opt/rt4/%{_sbindir}
 %global RT4_LIBDIR		%{perl_vendorlib}
-%global RT4_WWWDIR		%{_datadir}/rt4/html
-%global RT4_LEXDIR		%{_datadir}/rt4/po
+%global RT4_WWWDIR		/opt/rt4/%{_datadir}/rt4/html
+%global RT4_LEXDIR		/opt/rt4/%{_datadir}/rt4/po
 %global RT4_LOGDIR		%{_localstatedir}/log/rt4
-%global RT4_CACHEDIR		%{_localstatedir}/cache/rt4
-%global RT4_LOCALSTATEDIR	%{_localstatedir}/lib/rt4
+%global RT4_CACHEDIR		%{_localstatedir}2/cache/rt4
 
 # Make sure perl_testdir is defined 
 %{!?perl_testdir:%global perl_testdir %{_libexecdir}/perl5-tests}
@@ -433,30 +428,41 @@ sed -i.fixperms Makefile.in -e 's, fixperms , ,g'
 echo sed -i.DESTDIR Makefile.in -e 's,$$(DESTDIR)/,$$(DESTDIR),g'
 
 ## Propagate rpm directories to config.layout
-#mv config.layout config.layout.default
-#cat << \EOF > config.layout
-##   Fedora directory layout.
-##   RT has very odd ides of what "libdir" and "manualdir" actually are,
-##   make sure to override those
-#<Layout Fedora>
-#  bindir:		%{RT4_BINDIR}
-#  sysconfdir:		%{_sysconfdir}/rt4
-#  libdir:		%{RT4_LIBDIR}
-#  manualdir:		%{_defaultdocdir}/%{name}-%{version}
-#  lexdir:		%{RT4_LEXDIR}
-#  localstatedir:	%{RT4_LOCALSTATEDIR}
-#  htmldir:		%{RT4_WWWDIR}
-#  fontdir:		%{_datadir}/rt4/fonts
-#  logfiledir:		%{RT4_LOGDIR}
-#  masonstatedir:	%{RT4_CACHEDIR}/mason_data
-#  sessionstatedir:	%{RT4_CACHEDIR}/session_data
-#  customdir:		%{_prefix}/local/lib/rt4
-#  custometcdir:		%{_prefix}/local/etc/rt4
-#  customhtmldir:	${customdir}/html
-#  customlexdir:		${customdir}/po
-#  customlibdir:		${customdir}/lib
-#</Layout>
-#EOF
+mv config.layout config.layout.default
+cat << \EOF > config.layout
+#   RPM Layout
+#   RT3 layout with these changes:
+#    * logs into /var/log/rt4
+#    * cache and sessions put in /var/cache/rt4
+#    * man pages put into %_mandir
+<Layout RPM>
+  prefix:               /opt/rt4
+  exec_prefix:          ${prefix}
+  bindir:               ${exec_prefix}/bin
+  sbindir:              ${exec_prefix}/sbin
+  sysconfdir:           ${prefix}/etc
+  mandir:               %{_mandir}
+  plugindir:            ${prefix}/plugins
+  libdir:               %{prefix}/lib
+  datadir:              ${prefix}/share
+  htmldir:              ${datadir}/html
+  fontdir:              ${datadir}/fonts
+  lexdir:               ${datadir}/po
+  staticdir:            ${datadir}/static
+  manualdir:            ${prefix}/docs
+  localstatedir:        %{_localstatedir}
+  logfiledir:           ${RT4_LOGDIR}
+  masonstatedir:        ${RT4_CACHEDIR}/mason_data
+  sessionstatedir:      ${RT4_CACHEDIR}/session_data
+  customdir:            ${prefix}/local
+  custometcdir:         ${customdir}/etc
+  customhtmldir:        ${customdir}/html
+  customlexdir:         ${customdir}/po
+  customstaticdir:      ${customdir}/static
+  customlibdir:         ${customdir}/lib
+  customplugindir:  ${customdir}/plugins
+</Layout>
+EOF
 
 # Comment out the Makefile trying to change groups/owners
 # Fix DESTDIR support
@@ -467,18 +473,12 @@ sed -i \
 	-e 's,-o $(BIN_OWNER) -g $(RTGROUP),,g' \
 Makefile.in
 
-# Propagate rpm directories to config.layout
+# Write site config file
 cat << \EOF >> etc/RT_SiteConfig.pm
 
 # Must match Alias in rt4.conf
 Set($WebPath, "/rt4");
 EOF
-
-# Fix up broken shebangs
-#sed -i \
- #-e "s,^#!/usr/bin/env perl,#!%{__perl}," \
- #-e "s,^#!/opt/perl/bin/perl,#!%{__perl}," \
-   #t/*/*.t sbin/rt-message-catalog t/shredder/utils.pl
 
 # Make scripts executable
 find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
@@ -488,7 +488,8 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
     --with-web-user=apache \
     --with-web-group=apache \
     --with-db-type=Pg \
-    --enable-layout=RH \
+    --prefix=/opt/rt4 \
+    --enable-layout=RPM \
     --with-web-handler=fastcgi \
     --libdir=%{RT4_LIBDIR} \
 %{?with_graphviz:--enable-graphviz}%{!?with_graphviz:--disable-graphviz} \
@@ -499,7 +500,7 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
 #make %{?_smp_mflags}
 
 # Explicitly check for devel-mode deps
-%{?with_devel_mode:%{__perl} ./sbin/rt-test-dependencies --verbose --with-mysql --with-modperl2 --with-dev}
+%{?with_devel_mode:%{__perl} ./sbin/rt-test-dependencies --verbose --with-pg --with-fastcgi --with-dev}
 
 # Generate man-pages
 /usr/bin/pod2man bin/rt > bin/rt.1
@@ -510,57 +511,63 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
 make install DESTDIR=${RPM_BUILD_ROOT}
 
 # Cleanup the mess rt's configuration leaves behind
-rm -f ${RPM_BUILD_ROOT}%{_docdir}/README
-
-# Win32 stuff
-rm -f ${RPM_BUILD_ROOT}%{RT4_BINDIR}/mason_handler.svc
-
-# We don't want CPAN
+# - We don't want CPAN
 rm -f ${RPM_BUILD_ROOT}%{_sbindir}/rt-test-dependencies
 
-# Bogus
-rm -f ${RPM_BUILD_ROOT}%{RT4_LIBDIR}/RT.pm.in
+# Install nginx configuration
+mkdir -p ${RPM_BUILD_ROOT}%{_sysconfdir}/nginx/conf.d
+echo > ${RPM_BUILD_ROOT}%{_sysconfdir}/nginx/conf.d/rt4.conf << EOF
+server {
+    listen 80;
+    server_name rt.example.com;
+    access_log  /var/log/nginx/rt4-access.log;
 
-# Unsupported
-rm -f ${RPM_BUILD_ROOT}%{RT4_BINDIR}/*.scgi
+    location / {
+        fastcgi_param  QUERY_STRING       $query_string;
+        fastcgi_param  REQUEST_METHOD     $request_method;
+        fastcgi_param  CONTENT_TYPE       $content_type;
+        fastcgi_param  CONTENT_LENGTH     $content_length;
 
-# Install apache configuration
-mkdir -p ${RPM_BUILD_ROOT}%{_sysconfdir}/httpd/conf.d
-sed -e 's,@RT4_WWWDIR@,%{RT4_WWWDIR},g' \
-  -e 's,@RT4_BINDIR@,%{RT4_BINDIR},g' \
-  %{SOURCE3} > ${RPM_BUILD_ROOT}%{_sysconfdir}/httpd/conf.d/rt4.conf
+        fastcgi_param  SCRIPT_NAME        "";
+        fastcgi_param  PATH_INFO          $uri;
+        fastcgi_param  REQUEST_URI        $request_uri;
+        fastcgi_param  DOCUMENT_URI       $document_uri;
+        fastcgi_param  DOCUMENT_ROOT      $document_root;
+        fastcgi_param  SERVER_PROTOCOL    $server_protocol;
+
+        fastcgi_param  GATEWAY_INTERFACE  CGI/1.1;
+        fastcgi_param  SERVER_SOFTWARE    nginx/$nginx_version;
+
+        fastcgi_param  REMOTE_ADDR        $remote_addr;
+        fastcgi_param  REMOTE_PORT        $remote_port;
+        fastcgi_param  SERVER_ADDR        $server_addr;
+        fastcgi_param  SERVER_PORT        $server_port;
+        fastcgi_param  SERVER_NAME        $server_name;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+}
+EOF
 
 mkdir -p ${RPM_BUILD_ROOT}%{_mandir}/man1
 install -m 0644 bin/rt-mailgate.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
 install -m 0644 bin/rt-crontool.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
 
-#if [ "%{_bindir}" != "%{RT4_BINDIR}" ]; then
-  #mkdir -p ${RPM_BUILD_ROOT}%{_bindir}
-  #mv ${RPM_BUILD_ROOT}%{RT4_BINDIR}/rt \
-    #${RPM_BUILD_ROOT}%{_bindir}
-#fi
-
-install -d -m755 ${RPM_BUILD_ROOT}%{_prefix}/local/etc/rt4
-install -d -m755 ${RPM_BUILD_ROOT}%{_prefix}/local/lib/rt4
-install -d -m755 ${RPM_BUILD_ROOT}%{_prefix}/local/lib/rt4/html
-install -d -m755 ${RPM_BUILD_ROOT}%{_prefix}/local/lib/rt4/po
-install -d -m755 ${RPM_BUILD_ROOT}%{_prefix}/local/lib/rt4/lib
-
 install -d -m755 ${RPM_BUILD_ROOT}%{RT4_LOGDIR}
+install -d -m755 ${RPM_BUILD_ROOT}%{_sysconfdir}/rt4
+install -m 644 etc/RT_SiteConfig.pm ${RPM_BUILD_ROOT}%{_sysconfdir}/rt4
 
-# install log rotation stuff
+# session and state dirs
+install -d -m755 ${RPM_BUILD_ROOT}%{RT4_CACHEDIR}
+install -d -m755 ${RPM_BUILD_ROOT}%{RT4_CACHEDIR}/mason_data
+install -d -m755 ${RPM_BUILD_ROOT}%{RT4_CACHEDIR}/session_data
+
+# install log rotation files
 mkdir -p ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d
 install -m 644 rt4.logrotate ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d/rt4
 
-install -d -m755 ${RPM_BUILD_ROOT}%{RT4_LOCALSTATEDIR}
-
-install -d -m755 ${RPM_BUILD_ROOT}%{_sysconfdir}/rt4/upgrade
-cp -R etc/upgrade/* ${RPM_BUILD_ROOT}%{_sysconfdir}/rt4/upgrade
-rm -f ${RPM_BUILD_ROOT}%{_sysconfdir}/rt4/upgrade/*.in
-
-install -d -m755 ${RPM_BUILD_ROOT}%{_datadir}/rt4/fonts
-ln -s /usr/share/fonts/google-droid/DroidSans.ttf ${RPM_BUILD_ROOT}%{_datadir}/rt4/fonts
-ln -s /usr/share/fonts/google-droid/DroidSansFallback.ttf ${RPM_BUILD_ROOT}%{_datadir}/rt4/fonts
+install -d -m755 ${RPM_BUILD_ROOT}/opt/rt4/share/fonts
+ln -s /usr/share/fonts/google-droid/DroidSans.ttf ${RPM_BUILD_ROOT}/opt/rt4/share/fonts
+ln -s /usr/share/fonts/google-droid/DroidSansFallback.ttf ${RPM_BUILD_ROOT}/opt/rt4/share/fonts
 
 %if %{with devel_mode}
 install -d -m755 ${RPM_BUILD_ROOT}%{perl_testdir}/%{name}
@@ -570,9 +577,6 @@ cp %{SOURCE1} ${RPM_BUILD_ROOT}%{perl_testdir}/%{name}
 # pod.t can't be run outside of the source-tree
 rm -rf ${RPM_BUILD_ROOT}%{perl_testdir}/%{name}/t/pod.t
 
-# Some of the tests want t/../share/html
-install -d -m755 ${RPM_BUILD_ROOT}%{perl_testdir}/%{name}/share
-ln -s %{RT4_WWWDIR} ${RPM_BUILD_ROOT}%{perl_testdir}/%{name}/share/html
 %endif # with devel_mode
 
 # Fix permissions
@@ -595,49 +599,38 @@ fi
 %defattr(-,root,root,-)
 %doc COPYING README README.Oracle README.fedora
 # Keep config files, as used
-%doc config.layout config.layout.default
+%doc config.layout
 %{_bindir}/*
+%exclude %{_bindir}/rt-mailgate
 %{_sbindir}/*
-%exclude %{_sbindir}/rt-mailgate
 %{_mandir}/man1/*
 %exclude %{_mandir}/man1/rt-mailgate*
-%{perl_vendorlib}
-%exclude %{perl_vendorlib}/RT/Test*
+%exclude %{perl_testdir}/%{name}
 %attr(0700,apache,apache) %{RT4_LOGDIR}
-%dir %{_datadir}/rt4/po
-%{_datadir}/rt4/po/*.po
-%{_datadir}/rt4/po/*.pot
-
 %dir %{_sysconfdir}/rt4
-%attr(-,root,root)%{_sysconfdir}/rt4/upgrade
-%attr(-,root,root)%{_sysconfdir}/rt4/acl*
-%attr(-,root,root)%{_sysconfdir}/rt4/schema*
-%attr(-,root,root)%{_sysconfdir}/rt4/init*
+/opt/rt4
+%exclude /opt/rt4/etc/upgrade
+%exclude /opt/rt4/etc/acl*
+%exclude /opt/rt4/etc/schema*
+%exclude /opt/rt4/etc/init*
+%attr(-,root,root)/opt/rt4/etc/upgrade
+%attr(-,root,root)/opt/rt4/etc/acl*
+%attr(-,root,root)/opt/rt4/etc/schema*
+%attr(-,root,root)/opt/rt4/etc/init*
 %config(noreplace) %attr(0640,root,root) %{_sysconfdir}/rt4/RT_*
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/rt4
 
-%dir %{_datadir}/rt4
-%{RT4_WWWDIR}
-%{_datadir}/rt4/fonts
-
-%config(noreplace) %{_sysconfdir}/httpd/conf.d/rt4.conf
+%config(noreplace) %{_sysconfdir}/nginx/conf.d/rt4.conf
 
 %dir %{RT4_CACHEDIR}
 %attr(0770,apache,apache) %{RT4_CACHEDIR}/mason_data
 %attr(0770,apache,apache) %{RT4_CACHEDIR}/session_data
 
-%if "%{RT4_LOCALSTATEDIR}" != "%{RT4_CACHEDIR}"
-%dir %{RT4_LOCALSTATEDIR}
-%endif
-
-%ghost %{_prefix}/local/lib/rt4
-%ghost %{_prefix}/local/etc/rt4
-
 %files mailgate
 %defattr(-,root,root,-)
 %doc COPYING
-%{_sbindir}/rt-mailgate
+%{_bindir}/rt-mailgate
 %{_mandir}/man1/rt-mailgate*
 
 %if %{with devel_mode}
@@ -647,8 +640,6 @@ fi
 
 %files -n perl-RT-Test
 %defattr(-,root,root,-)
-%dir %{RT4_LIBDIR}/RT
-%{RT4_LIBDIR}/RT/Test*
 %endif
 
 %changelog

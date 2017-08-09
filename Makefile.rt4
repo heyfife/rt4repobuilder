@@ -55,6 +55,7 @@ $(MOCKS):: verifyspec FORCE
 		echo "Building $@.src.rpm in $@"; \
 		rm -rf $@; \
 		/usr/bin/mock -r $@ \
+                     --no-cleanup-after \
 		     --resultdir=$(PWD)/$@ \
 		     $@.src.rpm; \
 	fi

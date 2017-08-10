@@ -485,8 +485,8 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
 
 %build
 %configure \
-    --with-web-user=apache \
-    --with-web-group=apache \
+    --with-web-user=nginx \
+    --with-web-group=nginx \
     --with-db-type=Pg \
     --prefix=/opt/rt4 \
     --enable-layout=RPM \
@@ -606,7 +606,7 @@ fi
 %{_mandir}/man1/*
 %exclude %{_mandir}/man1/rt-mailgate*
 %exclude %{perl_testdir}/%{name}
-%attr(0700,apache,apache) %{RT4_LOGDIR}
+%attr(0700,nginx,nginx) %{RT4_LOGDIR}
 %dir %{_sysconfdir}/rt4
 /opt/rt4
 %exclude /opt/rt4/etc/upgrade
@@ -624,8 +624,8 @@ fi
 %config(noreplace) %{_sysconfdir}/nginx/conf.d/rt4.conf
 
 %dir %{RT4_CACHEDIR}
-%attr(0770,apache,apache) %{RT4_CACHEDIR}/mason_data
-%attr(0770,apache,apache) %{RT4_CACHEDIR}/session_data
+%attr(0770,nginx,nginx) %{RT4_CACHEDIR}/mason_data
+%attr(0770,nginx,nginx) %{RT4_CACHEDIR}/session_data
 
 %files mailgate
 %defattr(-,root,root,-)

@@ -6,6 +6,7 @@
 
 # Base directory for yum repository
 REPOBASEDIR="`/bin/pwd`"
+#REPOBASEDIR="/var/www/html/yum"
 # Base subdirectories for RPM deployment
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/SRPMS
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/x86_64
@@ -42,7 +43,7 @@ EPELPKGS+=perl-Locale-Maketext-Lexicon-srpm
 EPELPKGS+=perl-Log-Any-srpm
 EPELPKGS+=perl-Log-Dispatch-Perl-srpm
 EPELPKGS+=perl-Module-Util-srpm
-#EPELPKGS+=perl-Mojolicious-srpm
+EPELPKGS+=perl-PerlIO-eol-srpm
 EPELPKGS+=perl-Proc-Wait3-srpm
 EPELPKGS+=perl-Regexp-Common-Net-CIDR-srpm
 EPELPKGS+=perl-Role-Basic-srpm
@@ -114,8 +115,8 @@ RT4PKGS+=rt4-srpm
 
 # Add-on utilities, can be compiled with rt3 from EPEL,
 # but use rt4 from local builds
-RT4PKGS+=perl-RT-Extension-CommandByMail-srpm
-RT4PKGS+=perl-RT-Extension-MandatoryFields-srpm
+#RT4PKGS+=perl-RT-Extension-CommandByMail-srpm
+#RT4PKGS+=perl-RT-Extension-MandatoryFields-srpm
 
 # Populate rt4repo with packages compatible with just EPEL
 all:: epel-install
@@ -209,8 +210,8 @@ rt4:: perl-Text-WikiFormat-srpm
 rt4:: perl-Text-Wrapper-srpm
 rt4:: perl-Tree-Simple-srpm
 
-perl-RT-Extension-CommandByMail:: rt4-srpm
-perl-RT-Extension-MandatoryFields:: rt4-srpm
+#perl-RT-Extension-CommandByMail:: rt4-srpm
+#perl-RT-Extension-MandatoryFields:: rt4-srpm
 
 # Git clone operations, not normally required
 # Targets may change

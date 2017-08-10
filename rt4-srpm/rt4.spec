@@ -36,7 +36,7 @@
 %global RT4_WWWDIR		/opt/rt4/%{_datadir}/rt4/html
 %global RT4_LEXDIR		/opt/rt4/%{_datadir}/rt4/po
 %global RT4_LOGDIR		%{_localstatedir}/log/rt4
-%global RT4_CACHEDIR		%{_localstatedir}2/cache/rt4
+%global RT4_CACHEDIR		%{_localstatedir}/cache/rt4
 
 # Make sure perl_testdir is defined 
 %{!?perl_testdir:%global perl_testdir %{_libexecdir}/perl5-tests}
@@ -247,18 +247,18 @@ Requires: perl(Data::ICal::Entry::Event)
 Requires: perl(Data::Page::Pageset)
 Requires: perl(Date::Manip)
 Requires: perl(DateTime::Format::Natural)
-Requires: perl(Email::Address) > 1.908
+Requires: perl(Email::Address) >= 1.908
 Requires: perl(Email::Address::List) > 0.02
 Requires: perl(Encode)
 Requires: perl(File::Find)
 Requires: perl(File::Which)
 %{?with_gd:Requires: perl(GD::Text)}
-%{?with_gd:Requires: perl(GDGraph)}
+%{?with_gd:Requires: perl(GD::Graph)}
 %{?with_gpg: Requires: perl(GnuPG::Interface)}
 Requires: perl(HTML::FormatText::WithLinks) >= 0.14
 Requires: perl(HTML::FormatText::WithLinks::AndTables) >= 0.06
 Requires: perl(I18N::LangTags::List)
-Requires: perl(Javascript::Minifier::XS)
+Requires: perl(JavaScript::Minifier::XS)
 Requires: perl(Locale::Maketext::Fuzzy) >= 0.11
 Requires: perl(LWP::MediaTypes)
 Requires: perl(LWP::Protocol::https)
@@ -443,7 +443,7 @@ cat << \EOF > config.layout
   sysconfdir:           ${prefix}/etc
   mandir:               %{_mandir}
   plugindir:            ${prefix}/plugins
-  libdir:               %{prefix}/lib
+  libdir:               ${prefix}/lib
   datadir:              ${prefix}/share
   htmldir:              ${datadir}/html
   fontdir:              ${datadir}/fonts

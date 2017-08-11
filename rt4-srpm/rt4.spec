@@ -31,10 +31,10 @@
 #	Default: without (doesn't work in chroots.)
 %bcond_with runtests
 
-%global RT4_BINDIR		/opt/rt4/%{_sbindir}
+%global RT4_ROOT		/opt/rt4
+%global RT4_CONFDIR		%{RT4_ROOT}/etc
+%global RT4_BINDIR		%{RT4_ROOT}%{_sbindir}
 %global RT4_LIBDIR		%{perl_vendorlib}
-%global RT4_WWWDIR		/opt/rt4/%{_datadir}/rt4/html
-%global RT4_LEXDIR		/opt/rt4/%{_datadir}/rt4/po
 %global RT4_LOGDIR		%{_localstatedir}/log/rt4
 %global RT4_CACHEDIR		%{_localstatedir}/cache/rt4
 
@@ -217,6 +217,9 @@ BuildRequires: perl(XML::RSS) >= 1.05
 %{?with_runtests:BuildRequires: perl(Test::Harness)}
 BuildRequires: perl(Test::Pod)
 
+BuildRequires: nginx
+Requires: nginx
+
 BuildRequires:	/usr/bin/pod2man
 
 # the original sources carry bundled versions of these ...
@@ -227,6 +230,7 @@ BuildRequires:  google-droid-sans-fonts
 BuildRequires:  /usr/share/fonts/google-droid/DroidSansFallback.ttf
 BuildRequires:  /usr/share/fonts/google-droid/DroidSans.ttf
 BuildRequires: perl(Apache::Session)
+Requires: perl(Apache::Session)
 
 Requires:  perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
@@ -236,6 +240,7 @@ Requires(postun): %{__rm}
 Requires: perl(Business::Hours)
 Requires: perl(Calendar::Simple)
 Requires: perl(CSS::Minifier::XS)
+Requires: perl(CSS::Squish) >= 0.06
 Requires: perl(Data::GUID)
 Requires: perl(Date::Extract)
 Requires: perl(DBD::Pg)
@@ -436,7 +441,7 @@ cat << \EOF > config.layout
 #    * cache and sessions put in /var/cache/rt4
 #    * man pages put into %_mandir
 <Layout RPM>
-  prefix:               /opt/rt4
+  prefix:               %{RT4_ROOT}
   exec_prefix:          ${prefix}
   bindir:               ${exec_prefix}/bin
   sbindir:              ${exec_prefix}/sbin
@@ -490,7 +495,7 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
     --with-web-user=nginx \
     --with-web-group=nginx \
     --with-db-type=Pg \
-    --prefix=/opt/rt4 \
+    --prefix=%{RT4_ROOT} \
     --enable-layout=RPM \
     --with-web-handler=fastcgi \
     --libdir=%{RT4_LIBDIR} \
@@ -555,9 +560,11 @@ mkdir -p ${RPM_BUILD_ROOT}%{_mandir}/man1
 install -m 0644 bin/rt-mailgate.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
 install -m 0644 bin/rt-crontool.1 ${RPM_BUILD_ROOT}%{_mandir}/man1
 
+# log dir
 install -d -m755 ${RPM_BUILD_ROOT}%{RT4_LOGDIR}
-install -d -m755 ${RPM_BUILD_ROOT}%{_sysconfdir}/rt4
-install -m 644 etc/RT_SiteConfig.pm ${RPM_BUILD_ROOT}%{_sysconfdir}/rt4
+
+# config
+install -m 644 etc/RT_SiteConfig.pm ${RPM_BUILD_ROOT}%{RT4_CONFDIR}
 
 # session and state dirs
 install -d -m755 ${RPM_BUILD_ROOT}%{RT4_CACHEDIR}
@@ -568,9 +575,9 @@ install -d -m755 ${RPM_BUILD_ROOT}%{RT4_CACHEDIR}/session_data
 mkdir -p ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d
 install -m 644 rt4.logrotate ${RPM_BUILD_ROOT}%{_sysconfdir}/logrotate.d/rt4
 
-install -d -m755 ${RPM_BUILD_ROOT}/opt/rt4/share/fonts
-ln -s /usr/share/fonts/google-droid/DroidSans.ttf ${RPM_BUILD_ROOT}/opt/rt4/share/fonts
-ln -s /usr/share/fonts/google-droid/DroidSansFallback.ttf ${RPM_BUILD_ROOT}/opt/rt4/share/fonts
+install -d -m755 ${RPM_BUILD_ROOT}%{RT4_ROOT}/share/fonts
+ln -s /usr/share/fonts/google-droid/DroidSans.ttf ${RPM_BUILD_ROOT}%{RT4_ROOT}/share/fonts
+ln -s /usr/share/fonts/google-droid/DroidSansFallback.ttf ${RPM_BUILD_ROOT}%{RT4_ROOT}/share/fonts
 
 %if %{with devel_mode}
 install -d -m755 ${RPM_BUILD_ROOT}%{perl_testdir}/%{name}
@@ -609,18 +616,18 @@ fi
 %{_mandir}/man1/*
 %exclude %{_mandir}/man1/rt-mailgate*
 %exclude %{perl_testdir}/%{name}
-%attr(0700,nginx,nginx) %{RT4_LOGDIR}
-%dir %{_sysconfdir}/rt4
-/opt/rt4
-%exclude /opt/rt4/etc/upgrade
-%exclude /opt/rt4/etc/acl*
-%exclude /opt/rt4/etc/schema*
-%exclude /opt/rt4/etc/init*
-%attr(-,root,root)/opt/rt4/etc/upgrade
-%attr(-,root,root)/opt/rt4/etc/acl*
-%attr(-,root,root)/opt/rt4/etc/schema*
-%attr(-,root,root)/opt/rt4/etc/init*
-%config(noreplace) %attr(0640,root,root) %{_sysconfdir}/rt4/RT_*
+%attr(0755,nginx,nginx) %{RT4_LOGDIR}
+%attr(0755,nginx,nginx) %{RT4_CACHEDIR}
+%{RT4_ROOT}
+%exclude %{RT4_ROOT}/etc/upgrade
+%exclude %{RT4_ROOT}/etc/acl*
+%exclude %{RT4_ROOT}/etc/schema*
+%exclude %{RT4_ROOT}/etc/init*
+%attr(-,root,root)%{RT4_ROOT}/etc/upgrade
+%attr(-,root,root)%{RT4_ROOT}/etc/acl*
+%attr(-,root,root)%{RT4_ROOT}/etc/schema*
+%attr(-,root,root)%{RT4_ROOT}/etc/init*
+%config(noreplace) %attr(0640,nginx,nginx) %{RT4_ROOT}/etc/RT_*
 
 %config(noreplace) %{_sysconfdir}/logrotate.d/rt4
 

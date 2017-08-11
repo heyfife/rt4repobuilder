@@ -619,10 +619,10 @@ fi
 %attr(0755,nginx,nginx) %{RT4_LOGDIR}
 %attr(0755,nginx,nginx) %{RT4_CACHEDIR}
 %{RT4_ROOT}
-%exclude %{RT4_ROOT}/etc/upgrade
-%exclude %{RT4_ROOT}/etc/acl*
-%exclude %{RT4_ROOT}/etc/schema*
-%exclude %{RT4_ROOT}/etc/init*
+#%exclude %{RT4_ROOT}/etc/upgrade
+#%exclude %{RT4_ROOT}/etc/acl*
+#%exclude %{RT4_ROOT}/etc/schema*
+#%exclude %{RT4_ROOT}/etc/init*
 %attr(-,root,root)%{RT4_ROOT}/etc/upgrade
 %attr(-,root,root)%{RT4_ROOT}/etc/acl*
 %attr(-,root,root)%{RT4_ROOT}/etc/schema*

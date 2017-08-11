@@ -11,7 +11,7 @@ REPOBASEDIR="`/bin/pwd`"
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/SRPMS
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/x86_64
 
-MFLAGS="--debug=a"
+#MFLAGS="--debug=a"
 
 # These build with normal mock "epel-*" setups
 EPELPKGS+=google-droid-sans-fonts-srpm
@@ -243,6 +243,7 @@ clean::
 maintainer-clean:: clean
 	@echo Clearing local yum repository
 	find rt4repo -type f ! -type l -exec rm -f {} \; -print
+	find rt4repo -type d -name .olddata -exec rm -rf {} \; -print
 
 # Leave a safe repodata subdirectory
 maintainer-clean:: FORCE

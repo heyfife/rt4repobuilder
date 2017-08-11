@@ -451,18 +451,20 @@ cat << \EOF > config.layout
   staticdir:            ${datadir}/static
   manualdir:            ${prefix}/docs
   localstatedir:        %{_localstatedir}
-  logfiledir:           ${RT4_LOGDIR}
-  masonstatedir:        ${RT4_CACHEDIR}/mason_data
-  sessionstatedir:      ${RT4_CACHEDIR}/session_data
+  logfiledir:           %{RT4_LOGDIR}
+  masonstatedir:        %{RT4_CACHEDIR}/mason_data
+  sessionstatedir:      %{RT4_CACHEDIR}/session_data
   customdir:            ${prefix}/local
   custometcdir:         ${customdir}/etc
   customhtmldir:        ${customdir}/html
   customlexdir:         ${customdir}/po
   customstaticdir:      ${customdir}/static
   customlibdir:         ${customdir}/lib
-  customplugindir:  ${customdir}/plugins
+  customplugindir:      ${customdir}/plugins
 </Layout>
 EOF
+
+cat config.layout
 
 # Comment out the Makefile trying to change groups/owners
 # Fix DESTDIR support
@@ -500,7 +502,8 @@ find t \( -name '*.t' -o -name '*.pl' \) -exec chmod +x {} \;
 #make %{?_smp_mflags}
 
 # Explicitly check for devel-mode deps
-%{?with_devel_mode:%{__perl} ./sbin/rt-test-dependencies --verbose --with-pg --with-fastcgi --with-dev}
+#%{?with_devel_mode:%{__perl} ./sbin/rt-test-dependencies --verbose --with-pg --with-gpg --with-graphviz --with-gd --with-fastcgi --with-dev}
+%{?with_devel_mode:%{__perl} ./sbin/rt-test-dependencies --verbose --with-pg --with-gd --with-fastcgi --with-dev}
 
 # Generate man-pages
 /usr/bin/pod2man bin/rt > bin/rt.1

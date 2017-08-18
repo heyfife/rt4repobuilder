@@ -160,6 +160,7 @@ rt4-install:: FORCE
 	done
 
 # Dependencies
+perl-Business-Hours-srpm:: perl-Set-IntSpan-srpm-srpm
 perl-Convert-Color-srpm:: perl-List-UtilsBy-srpm
 perl-DBIx-SearchBuilder-srpm:: perl-Cache-Simple-TimedExpiry-srpm
 perl-DBIx-SearchBuilder-srpm:: perl-capitalization-srpm

@@ -5,7 +5,7 @@
 #	https://github.com/nkadel/rt4repo
 
 # Base directory for yum repository
-REPOBASEDIR:=$(PWD)
+REPOBASEDIR="`/bin/pwd`"
 #REPOBASEDIR="/var/www/html/yum"
 # Base subdirectories for RPM deployment
 REPOBASESUBDIRS+=$(REPOBASEDIR)/rt4repo/7/SRPMS

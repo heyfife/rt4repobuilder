@@ -40,7 +40,6 @@ EPELPKGS+=perl-IO-Socket-IP-srpm
 EPELPKGS+=perl-List-UtilsBy-srpm
 EPELPKGS+=perl-Locale-Maketext-Fuzzy-srpm
 EPELPKGS+=perl-Locale-Maketext-Lexicon-srpm
-EPELPKGS+=perl-Log-Any-srpm
 EPELPKGS+=perl-Log-Dispatch-Perl-srpm
 EPELPKGS+=perl-Module-Util-srpm
 EPELPKGS+=perl-PerlIO-eol-srpm

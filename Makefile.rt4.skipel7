@@ -75,7 +75,7 @@ install:: $(MOCKS)
 		createrepo -q $$rpmdir/.; \
 	    done; \
 	    echo "	Touching /etc/mock/$$repo.cfg to force cache rebuild"; \
-	    sudo /bin/touch /etc/mock/$$repo.cfg; \
+	    /bin/touch /etc/mock/$$repo.cfg; \
 	done
 
 clean::

@@ -130,8 +130,7 @@ rt4repo-7-x86_64.cfg:: rt4repo-7-x86_64.cfg.in
 
 rt4repo-7-x86_64.cfg:: FORCE
 	@cmp -s $@ /etc/mock/$@ || \
-		(echo Warning: /etc/mock/$@ does not match $@, overwriting; diff -N /etc/mock/$@ $@ )
-	cp $@ /etc/mock/$@
+		(echo Warning: /etc/mock/$@ does not match $@, overwriting; diff -N /etc/mock/$@ $@ ; cp $@ /etc/mock/$@)
 
 # Used for make build with local components
 rt4repo.repo:: rt4repo.repo.in

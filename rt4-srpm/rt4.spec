@@ -250,6 +250,7 @@ Requires: perl(Crypt::X509)
 Requires: perl(Data::ICal)
 Requires: perl(Data::ICal::Entry::Event)
 Requires: perl(Data::Page::Pageset)
+Requires: perl(Data::Page)
 Requires: perl(Date::Manip)
 Requires: perl(DateTime::Format::Natural)
 Requires: perl(Email::Address) >= 1.908
@@ -279,6 +280,7 @@ Requires: perl(Set::Tiny)
 Requires: perl(Symbol::Global::Name)
 Requires: perl(Text::Quoted)
 Requires: perl(Text::WikiFormat)
+Requires: perl(Time::ParseDate)
 #Requires: perl(URI) >= 1.99
 Requires: perl(URI) >= 1.60
 Requires: perl(URI::URL)

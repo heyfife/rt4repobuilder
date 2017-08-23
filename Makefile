@@ -56,6 +56,7 @@ EPELPKGS+=perl-Text-Password-Pronounceable-srpm
 EPELPKGS+=perl-Text-Quoted-srpm
 EPELPKGS+=perl-Text-WikiFormat-srpm
 EPELPKGS+=perl-Text-Wrapper-srpm
+EPELPKGS+=perl-Time-ParseDate-srpm
 EPELPKGS+=perl-Tree-Simple-srpm
 EPELPKGS+=perl-capitalization-srpm
 
@@ -208,6 +209,7 @@ rt4:: perl-Text-Password-Pronounceable-srpm
 rt4:: perl-Text-Quoted-srpm
 rt4:: perl-Text-WikiFormat-srpm
 rt4:: perl-Text-Wrapper-srpm
+rt4:: perl-Time-ParseDate-srpm
 rt4:: perl-Tree-Simple-srpm
 
 #perl-RT-Extension-CommandByMail:: rt4-srpm

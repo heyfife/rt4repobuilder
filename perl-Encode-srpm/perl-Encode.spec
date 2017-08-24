@@ -9,6 +9,7 @@ Source0:        http://www.cpan.org/authors/id/D/DA/DANKOGAI/Encode-%{version}.t
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  perl(Exporter) >= 5.57
 BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(ExtUtils::Manifest)
 BuildRequires:  perl(parent) >= 0.221
 BuildRequires:  perl(Storable)
 BuildRequires:  perl(Test::More) >= 0.81_01

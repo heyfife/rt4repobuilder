@@ -43,7 +43,7 @@
 
 Name:		rt4
 Version:	4.4.2
-Release:	0.5%{?dist}
+Release:	0.6%{?dist}
 Summary:	Request tracker 4
 
 Group:		Applications/Internet
@@ -92,6 +92,7 @@ BuildRequires: perl(CSS::Minifier::XS) >= 0.06
 BuildRequires: perl(Data::GUID)
 BuildRequires: perl(Data::ICal)
 BuildRequires: perl(Data::Page::Pageset)
+BuildRequires: perl(Data::Page)
 BuildRequires: perl(Date::Extract)
 BuildRequires: perl(Date::Format)
 BuildRequires: perl(Date::Manip)

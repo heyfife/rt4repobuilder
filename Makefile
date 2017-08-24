@@ -29,7 +29,6 @@ EPELPKGS+=perl-DBIx-DBschema-srpm
 EPELPKGS+=perl-Expect-Simple-srpm
 EPELPKGS+=perl-Email-Address-srpm
 EPELPKGS+=perl-Email-Address-List-srpm
-EPELPKGS+=perl-Encode-srpm
 EPELPKGS+=perl-ExtUtils-Installed-srpm
 EPELPKGS+=perl-ExtUtils-MakeMaker-srpm
 EPELPKGS+=perl-EV-srpm
@@ -65,6 +64,7 @@ EPELPKGS+=perl-capitalization-srpm
 
 # requires perl-Set-IntSpan
 RT4PKGS+=perl-Business-Hours-srpm
+RT4PKGS+=perl-Encode-srpm
 
 # Now requires perl-Cache-Simple-TimedExpiry-srpm
 RT4PKGS+=perl-DBIx-SearchBuilder-srpm
@@ -162,6 +162,7 @@ rt4-install:: FORCE
 
 # Dependencies
 perl-Business-Hours-srpm:: perl-Set-IntSpan-srpm-srpm
+#perl-Business-Hours-srpm:: perl-Encode-srpm
 perl-Convert-Color-srpm:: perl-List-UtilsBy-srpm
 perl-DBIx-SearchBuilder-srpm:: perl-Cache-Simple-TimedExpiry-srpm
 perl-DBIx-SearchBuilder-srpm:: perl-capitalization-srpm
@@ -191,6 +192,7 @@ rt4:: perl-Calendar-Simple-srpm
 rt4:: perl-Convert-Color-srpm
 rt4:: perl-DBIx-DBschema-srpm
 rt4:: perl-DBIx-SearchBuilder-srpm
+rt4:: perl-Encode-srpm
 rt4:: perl-GnuPG-Interface-srpm
 rt4:: perl-HTML-Mason-PSGIHandler-srpm
 rt4:: perl-HTML-Mason-srpm

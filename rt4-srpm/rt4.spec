@@ -459,7 +459,7 @@ cat << \EOF > config.layout
   lexdir:               ${datadir}/po
   staticdir:            ${datadir}/static
   manualdir:            ${prefix}/docs
-  localstatedir:        %{_localstatedir}
+  localstatedir:        ${prefix}/var
   logfiledir:           %{RT4_LOGDIR}
   masonstatedir:        %{RT4_CACHEDIR}/mason_data
   sessionstatedir:      %{RT4_CACHEDIR}/session_data

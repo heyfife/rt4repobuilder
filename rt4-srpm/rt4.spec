@@ -264,6 +264,7 @@ Requires: perl(File::Which)
 %{?with_gpg: Requires: perl(GnuPG::Interface)}
 Requires: perl(HTML::FormatText::WithLinks) >= 0.14
 Requires: perl(HTML::FormatText::WithLinks::AndTables) >= 0.06
+Requires: perl(HTML::Quoted)
 Requires: perl(I18N::LangTags::List)
 Requires: perl(JavaScript::Minifier::XS)
 Requires: perl(Locale::Maketext::Fuzzy) >= 0.11

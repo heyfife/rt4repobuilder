@@ -43,7 +43,7 @@
 
 Name:		rt4
 Version:	4.4.2
-Release:	0.6%{?dist}
+Release:	0.7%{?dist}
 Summary:	Request tracker 4
 
 Group:		Applications/Internet
